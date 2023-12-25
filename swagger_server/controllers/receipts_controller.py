@@ -5,6 +5,7 @@ from swagger_server.models.error import Error  # noqa: E501
 from swagger_server.models.receipt import Receipt  # noqa: E501
 from swagger_server.models.receipt_create_request import ReceiptCreateRequest  # noqa: E501
 from swagger_server.models.receipt_list import ReceiptList  # noqa: E501
+from swagger_server.models.receipt_update_request import ReceiptUpdateRequest  # noqa: E501
 from swagger_server import util
 
 
@@ -44,4 +45,21 @@ def receipts_post(body):  # noqa: E501
     """
     if connexion.request.is_json:
         body = ReceiptCreateRequest.from_dict(connexion.request.get_json())  # noqa: E501
+    return 'do some magic!'
+
+
+def receipts_receipt_id_put(body, receipt_id):  # noqa: E501
+    """Update receipt details
+
+    Update details of an existing receipt by ID. # noqa: E501
+
+    :param body: 
+    :type body: dict | bytes
+    :param receipt_id: ID of the receipt to update
+    :type receipt_id: str
+
+    :rtype: Receipt
+    """
+    if connexion.request.is_json:
+        body = ReceiptUpdateRequest.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'

@@ -2,7 +2,7 @@ import connexion
 import six
 
 from swagger_server.models.bulk_update_request import BulkUpdateRequest  # noqa: E501
-from swagger_server.models.bulk_update_response import BulkUpdateResponse  # noqa: E501
+# from swagger_server.models.bulk_update_response import BulkUpdateResponse  # noqa: E501
 from swagger_server.models.error import Error  # noqa: E501
 from swagger_server import util
 

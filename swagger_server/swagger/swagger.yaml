@@ -8,7 +8,7 @@ info:
     name: Your License
   version: 1.0.0
 servers:
-- url: http://localhost:5000/api/v1
+- url: http://localhost:8080/v1
 tags:
 - name: branches
   description: Operations related to branches

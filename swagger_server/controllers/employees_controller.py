@@ -4,6 +4,7 @@ import six
 from swagger_server.models.employee import Employee  # noqa: E501
 from swagger_server.models.employee_create_request import EmployeeCreateRequest  # noqa: E501
 from swagger_server.models.employee_list import EmployeeList  # noqa: E501
+from swagger_server.models.employee_update_request import EmployeeUpdateRequest  # noqa: E501
 from swagger_server.models.error import Error  # noqa: E501
 from swagger_server import util
 
@@ -18,6 +19,23 @@ def employees_delete(employee_id):  # noqa: E501
 
     :rtype: None
     """
+    return 'do some magic!'
+
+
+def employees_employee_id_put(body, employee_id):  # noqa: E501
+    """Update employee details
+
+    Update details of an existing employee by ID. # noqa: E501
+
+    :param body: 
+    :type body: dict | bytes
+    :param employee_id: ID of the employee to update
+    :type employee_id: str
+
+    :rtype: Employee
+    """
+    if connexion.request.is_json:
+        body = EmployeeUpdateRequest.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 
