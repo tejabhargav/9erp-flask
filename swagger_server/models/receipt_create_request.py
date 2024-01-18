@@ -14,35 +14,40 @@ class ReceiptCreateRequest(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, student_id: str=None, fee_amount: float=None, mode_of_payment: str=None, letter_head_on_receipt: str=None):  # noqa: E501
+    def __init__(self, application_number: str=None, fee_type: str=None, amount: float=None, mode_of_payment: str=None, cheque_number: str=None):  # noqa: E501
         """ReceiptCreateRequest - a model defined in Swagger
 
-        :param student_id: The student_id of this ReceiptCreateRequest.  # noqa: E501
-        :type student_id: str
-        :param fee_amount: The fee_amount of this ReceiptCreateRequest.  # noqa: E501
-        :type fee_amount: float
+        :param application_number: The application_number of this ReceiptCreateRequest.  # noqa: E501
+        :type application_number: str
+        :param fee_type: The fee_type of this ReceiptCreateRequest.  # noqa: E501
+        :type fee_type: str
+        :param amount: The amount of this ReceiptCreateRequest.  # noqa: E501
+        :type amount: float
         :param mode_of_payment: The mode_of_payment of this ReceiptCreateRequest.  # noqa: E501
         :type mode_of_payment: str
-        :param letter_head_on_receipt: The letter_head_on_receipt of this ReceiptCreateRequest.  # noqa: E501
-        :type letter_head_on_receipt: str
+        :param cheque_number: The cheque_number of this ReceiptCreateRequest.  # noqa: E501
+        :type cheque_number: str
         """
         self.swagger_types = {
-            'student_id': str,
-            'fee_amount': float,
+            'application_number': str,
+            'fee_type': str,
+            'amount': float,
             'mode_of_payment': str,
-            'letter_head_on_receipt': str
+            'cheque_number': str
         }
 
         self.attribute_map = {
-            'student_id': 'studentId',
-            'fee_amount': 'feeAmount',
+            'application_number': 'applicationNumber',
+            'fee_type': 'feeType',
+            'amount': 'amount',
             'mode_of_payment': 'modeOfPayment',
-            'letter_head_on_receipt': 'letterHeadOnReceipt'
+            'cheque_number': 'chequeNumber'
         }
-        self._student_id = student_id
-        self._fee_amount = fee_amount
+        self._application_number = application_number
+        self._fee_type = fee_type
+        self._amount = amount
         self._mode_of_payment = mode_of_payment
-        self._letter_head_on_receipt = letter_head_on_receipt
+        self._cheque_number = cheque_number
 
     @classmethod
     def from_dict(cls, dikt) -> 'ReceiptCreateRequest':
@@ -56,46 +61,73 @@ class ReceiptCreateRequest(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def student_id(self) -> str:
-        """Gets the student_id of this ReceiptCreateRequest.
+    def application_number(self) -> str:
+        """Gets the application_number of this ReceiptCreateRequest.
 
 
-        :return: The student_id of this ReceiptCreateRequest.
+        :return: The application_number of this ReceiptCreateRequest.
         :rtype: str
         """
-        return self._student_id
+        return self._application_number
 
-    @student_id.setter
-    def student_id(self, student_id: str):
-        """Sets the student_id of this ReceiptCreateRequest.
+    @application_number.setter
+    def application_number(self, application_number: str):
+        """Sets the application_number of this ReceiptCreateRequest.
 
 
-        :param student_id: The student_id of this ReceiptCreateRequest.
-        :type student_id: str
+        :param application_number: The application_number of this ReceiptCreateRequest.
+        :type application_number: str
         """
 
-        self._student_id = student_id
+        self._application_number = application_number
 
     @property
-    def fee_amount(self) -> float:
-        """Gets the fee_amount of this ReceiptCreateRequest.
+    def fee_type(self) -> str:
+        """Gets the fee_type of this ReceiptCreateRequest.
 
 
-        :return: The fee_amount of this ReceiptCreateRequest.
+        :return: The fee_type of this ReceiptCreateRequest.
+        :rtype: str
+        """
+        return self._fee_type
+
+    @fee_type.setter
+    def fee_type(self, fee_type: str):
+        """Sets the fee_type of this ReceiptCreateRequest.
+
+
+        :param fee_type: The fee_type of this ReceiptCreateRequest.
+        :type fee_type: str
+        """
+        allowed_values = ["firstYearTuitionFee", "firstYearHostelFee", "secondYearTuitionFee", "secondYearHostelFee"]  # noqa: E501
+        if fee_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `fee_type` ({0}), must be one of {1}"
+                .format(fee_type, allowed_values)
+            )
+
+        self._fee_type = fee_type
+
+    @property
+    def amount(self) -> float:
+        """Gets the amount of this ReceiptCreateRequest.
+
+
+        :return: The amount of this ReceiptCreateRequest.
         :rtype: float
         """
-        return self._fee_amount
+        return self._amount
 
-    @fee_amount.setter
-    def fee_amount(self, fee_amount: float):
-        """Sets the fee_amount of this ReceiptCreateRequest.
+    @amount.setter
+    def amount(self, amount: float):
+        """Sets the amount of this ReceiptCreateRequest.
 
 
-        :param fee_amount: The fee_amount of this ReceiptCreateRequest.
-        :type fee_amount: float
+        :param amount: The amount of this ReceiptCreateRequest.
+        :type amount: float
         """
 
-        self._fee_amount = fee_amount
+        self._amount = amount
 
     @property
     def mode_of_payment(self) -> str:
@@ -115,32 +147,26 @@ class ReceiptCreateRequest(Model):
         :param mode_of_payment: The mode_of_payment of this ReceiptCreateRequest.
         :type mode_of_payment: str
         """
-        allowed_values = ["Cash", "Card", "Cheque", "Bank Transfer/UPI", "Concession"]  # noqa: E501
-        if mode_of_payment not in allowed_values:
-            raise ValueError(
-                "Invalid value for `mode_of_payment` ({0}), must be one of {1}"
-                .format(mode_of_payment, allowed_values)
-            )
 
         self._mode_of_payment = mode_of_payment
 
     @property
-    def letter_head_on_receipt(self) -> str:
-        """Gets the letter_head_on_receipt of this ReceiptCreateRequest.
+    def cheque_number(self) -> str:
+        """Gets the cheque_number of this ReceiptCreateRequest.
 
 
-        :return: The letter_head_on_receipt of this ReceiptCreateRequest.
+        :return: The cheque_number of this ReceiptCreateRequest.
         :rtype: str
         """
-        return self._letter_head_on_receipt
+        return self._cheque_number
 
-    @letter_head_on_receipt.setter
-    def letter_head_on_receipt(self, letter_head_on_receipt: str):
-        """Sets the letter_head_on_receipt of this ReceiptCreateRequest.
+    @cheque_number.setter
+    def cheque_number(self, cheque_number: str):
+        """Sets the cheque_number of this ReceiptCreateRequest.
 
 
-        :param letter_head_on_receipt: The letter_head_on_receipt of this ReceiptCreateRequest.
-        :type letter_head_on_receipt: str
+        :param cheque_number: The cheque_number of this ReceiptCreateRequest.
+        :type cheque_number: str
         """
 
-        self._letter_head_on_receipt = letter_head_on_receipt
+        self._cheque_number = cheque_number

@@ -153,50 +153,31 @@ def generate_custom_id(id_type, last_sequence):
         str: A string representing the custom ID in the format
         'id_type{last_sequence_string+1}T{timestamp}'.
     """
-    sequence = base62_encode(base62_decode(last_sequence) + 1).zfill(5)
-
-    timestamp = str(int(time.time() * 1000))
+    sequence = int(last_sequence) + 1
+    
     return {
-        "id": f'{id_type}{sequence}T{timestamp}',
+        "id": f'{id_type}{sequence}',
+        "updatedSequence": sequence,
+    }
+
+
+def generate_receipt_id(id_type, last_sequence):
+    """
+    Generates a custom ID consisting of a random 5-character alphanumeric
+    string and a timestamp in milliseconds (UTC).
+
+    Returns:
+        str: A string representing the custom ID in the format
+        'id_type{last_sequence_string+1}T{timestamp}'.
+    """
+    sequence = int(last_sequence) + 1
+    sequence = str(sequence).zfill(6)
+
+    return {
+        "id": f'{id_type}{sequence}',
         "updatedSequence": sequence,
     }
     
-
-def base62_decode(s):
-    """
-    Decode a base62 encoded string.
-
-    Args:
-        s (str): The base62 encoded string.
-
-    Returns:
-        int: The decoded number.
-
-    """
-    chars = string.digits + string.ascii_lowercase + string.ascii_uppercase
-    result = 0
-    for i, c in enumerate(reversed(s)):
-        result += chars.index(c) * (62 ** i)
-    return result
-
-
-def base62_encode(num):
-    """
-    Encode a given number into base62 representation.
-
-    Args:
-        num (int): The number to be encoded.
-
-    Returns:
-        str: The base62 encoded string.
-
-    """
-    chars = string.digits + string.ascii_lowercase + string.ascii_uppercase
-    result = ''
-    while num > 0:
-        num, remainder = divmod(num, 62)
-        result = chars[remainder] + result
-    return result
 
 
 def snake_to_camel(data):

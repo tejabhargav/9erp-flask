@@ -14,65 +14,30 @@ class Branch(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, branch_id: str=None, branch_name: str=None, branch_code: str=None, address: str=None, contact: str=None, courses_offered: List[str]=None, batches: List[str]=None, year_of_joining: List[str]=None, sections: List[str]=None, accounts: List[str]=None):  # noqa: E501
+    def __init__(self, branch_name: str=None, branch_code: str=None, branch_address: str=None):  # noqa: E501
         """Branch - a model defined in Swagger
 
-        :param branch_id: The branch_id of this Branch.  # noqa: E501
-        :type branch_id: str
         :param branch_name: The branch_name of this Branch.  # noqa: E501
         :type branch_name: str
         :param branch_code: The branch_code of this Branch.  # noqa: E501
         :type branch_code: str
-        :param address: The address of this Branch.  # noqa: E501
-        :type address: str
-        :param contact: The contact of this Branch.  # noqa: E501
-        :type contact: str
-        :param courses_offered: The courses_offered of this Branch.  # noqa: E501
-        :type courses_offered: List[str]
-        :param batches: The batches of this Branch.  # noqa: E501
-        :type batches: List[str]
-        :param year_of_joining: The year_of_joining of this Branch.  # noqa: E501
-        :type year_of_joining: List[str]
-        :param sections: The sections of this Branch.  # noqa: E501
-        :type sections: List[str]
-        :param accounts: The accounts of this Branch.  # noqa: E501
-        :type accounts: List[str]
+        :param branch_address: The branch_address of this Branch.  # noqa: E501
+        :type branch_address: str
         """
         self.swagger_types = {
-            'branch_id': str,
             'branch_name': str,
             'branch_code': str,
-            'address': str,
-            'contact': str,
-            'courses_offered': List[str],
-            'batches': List[str],
-            'year_of_joining': List[str],
-            'sections': List[str],
-            'accounts': List[str]
+            'branch_address': str
         }
 
         self.attribute_map = {
-            'branch_id': 'branchId',
             'branch_name': 'branchName',
             'branch_code': 'branchCode',
-            'address': 'address',
-            'contact': 'contact',
-            'courses_offered': 'coursesOffered',
-            'batches': 'batches',
-            'year_of_joining': 'yearOfJoining',
-            'sections': 'sections',
-            'accounts': 'accounts'
+            'branch_address': 'branchAddress'
         }
-        self._branch_id = branch_id
         self._branch_name = branch_name
         self._branch_code = branch_code
-        self._address = address
-        self._contact = contact
-        self._courses_offered = courses_offered
-        self._batches = batches
-        self._year_of_joining = year_of_joining
-        self._sections = sections
-        self._accounts = accounts
+        self._branch_address = branch_address
 
     @classmethod
     def from_dict(cls, dikt) -> 'Branch':
@@ -84,27 +49,6 @@ class Branch(Model):
         :rtype: Branch
         """
         return util.deserialize_model(dikt, cls)
-
-    @property
-    def branch_id(self) -> str:
-        """Gets the branch_id of this Branch.
-
-
-        :return: The branch_id of this Branch.
-        :rtype: str
-        """
-        return self._branch_id
-
-    @branch_id.setter
-    def branch_id(self, branch_id: str):
-        """Sets the branch_id of this Branch.
-
-
-        :param branch_id: The branch_id of this Branch.
-        :type branch_id: str
-        """
-
-        self._branch_id = branch_id
 
     @property
     def branch_name(self) -> str:
@@ -149,148 +93,22 @@ class Branch(Model):
         self._branch_code = branch_code
 
     @property
-    def address(self) -> str:
-        """Gets the address of this Branch.
+    def branch_address(self) -> str:
+        """Gets the branch_address of this Branch.
 
 
-        :return: The address of this Branch.
+        :return: The branch_address of this Branch.
         :rtype: str
         """
-        return self._address
+        return self._branch_address
 
-    @address.setter
-    def address(self, address: str):
-        """Sets the address of this Branch.
+    @branch_address.setter
+    def branch_address(self, branch_address: str):
+        """Sets the branch_address of this Branch.
 
 
-        :param address: The address of this Branch.
-        :type address: str
+        :param branch_address: The branch_address of this Branch.
+        :type branch_address: str
         """
 
-        self._address = address
-
-    @property
-    def contact(self) -> str:
-        """Gets the contact of this Branch.
-
-
-        :return: The contact of this Branch.
-        :rtype: str
-        """
-        return self._contact
-
-    @contact.setter
-    def contact(self, contact: str):
-        """Sets the contact of this Branch.
-
-
-        :param contact: The contact of this Branch.
-        :type contact: str
-        """
-
-        self._contact = contact
-
-    @property
-    def courses_offered(self) -> List[str]:
-        """Gets the courses_offered of this Branch.
-
-
-        :return: The courses_offered of this Branch.
-        :rtype: List[str]
-        """
-        return self._courses_offered
-
-    @courses_offered.setter
-    def courses_offered(self, courses_offered: List[str]):
-        """Sets the courses_offered of this Branch.
-
-
-        :param courses_offered: The courses_offered of this Branch.
-        :type courses_offered: List[str]
-        """
-
-        self._courses_offered = courses_offered
-
-    @property
-    def batches(self) -> List[str]:
-        """Gets the batches of this Branch.
-
-
-        :return: The batches of this Branch.
-        :rtype: List[str]
-        """
-        return self._batches
-
-    @batches.setter
-    def batches(self, batches: List[str]):
-        """Sets the batches of this Branch.
-
-
-        :param batches: The batches of this Branch.
-        :type batches: List[str]
-        """
-
-        self._batches = batches
-
-    @property
-    def year_of_joining(self) -> List[str]:
-        """Gets the year_of_joining of this Branch.
-
-
-        :return: The year_of_joining of this Branch.
-        :rtype: List[str]
-        """
-        return self._year_of_joining
-
-    @year_of_joining.setter
-    def year_of_joining(self, year_of_joining: List[str]):
-        """Sets the year_of_joining of this Branch.
-
-
-        :param year_of_joining: The year_of_joining of this Branch.
-        :type year_of_joining: List[str]
-        """
-
-        self._year_of_joining = year_of_joining
-
-    @property
-    def sections(self) -> List[str]:
-        """Gets the sections of this Branch.
-
-
-        :return: The sections of this Branch.
-        :rtype: List[str]
-        """
-        return self._sections
-
-    @sections.setter
-    def sections(self, sections: List[str]):
-        """Sets the sections of this Branch.
-
-
-        :param sections: The sections of this Branch.
-        :type sections: List[str]
-        """
-
-        self._sections = sections
-
-    @property
-    def accounts(self) -> List[str]:
-        """Gets the accounts of this Branch.
-
-
-        :return: The accounts of this Branch.
-        :rtype: List[str]
-        """
-        return self._accounts
-
-    @accounts.setter
-    def accounts(self, accounts: List[str]):
-        """Sets the accounts of this Branch.
-
-
-        :param accounts: The accounts of this Branch.
-        :type accounts: List[str]
-        """
-
-        self._accounts = accounts
+        self._branch_address = branch_address

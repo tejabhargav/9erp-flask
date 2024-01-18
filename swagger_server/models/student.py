@@ -14,85 +14,145 @@ class Student(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, student_id: str=None, application_number: str=None, date_of_joining: date=None, branch: str=None, name: str=None, parent_name: str=None, primary_number: str=None, secondary_number: str=None, gender: str=None, batch: str=None, year_of_joining: str=None, section: str=None, roll_number: str=None, fee_structure_for_one_year: float=None):  # noqa: E501
+    def __init__(self, application_number: str=None, date_of_joining: str=None, course: str=None, first_name: str=None, sur_name: str=None, parent_name: str=None, gender: str=None, batch: str=None, branch: str=None, year_of_joining: str=None, mode_of_residence: str=None, primary_contact: str=None, secondary_contact: str=None, first_year_hostel_fee: float=None, first_year_tution_fee: float=None, second_year_hostel_fee: float=None, second_year_tution_fee: float=None, pending_first_year_tuition_fee: float=None, pending_first_year_hostel_fee: float=None, pending_second_year_tuition_fee: float=None, pending_second_year_hostel_fee: float=None, paid_first_year_tuition_fee: float=None, paid_first_year_hostel_fee: float=None, paid_second_year_tuition_fee: float=None, paid_second_year_hostel_fee: float=None, student_status: str=None):  # noqa: E501
         """Student - a model defined in Swagger
 
-        :param student_id: The student_id of this Student.  # noqa: E501
-        :type student_id: str
         :param application_number: The application_number of this Student.  # noqa: E501
         :type application_number: str
         :param date_of_joining: The date_of_joining of this Student.  # noqa: E501
-        :type date_of_joining: date
-        :param branch: The branch of this Student.  # noqa: E501
-        :type branch: str
-        :param name: The name of this Student.  # noqa: E501
-        :type name: str
+        :type date_of_joining: str
+        :param course: The course of this Student.  # noqa: E501
+        :type course: str
+        :param first_name: The first_name of this Student.  # noqa: E501
+        :type first_name: str
+        :param sur_name: The sur_name of this Student.  # noqa: E501
+        :type sur_name: str
         :param parent_name: The parent_name of this Student.  # noqa: E501
         :type parent_name: str
-        :param primary_number: The primary_number of this Student.  # noqa: E501
-        :type primary_number: str
-        :param secondary_number: The secondary_number of this Student.  # noqa: E501
-        :type secondary_number: str
         :param gender: The gender of this Student.  # noqa: E501
         :type gender: str
         :param batch: The batch of this Student.  # noqa: E501
         :type batch: str
+        :param branch: The branch of this Student.  # noqa: E501
+        :type branch: str
         :param year_of_joining: The year_of_joining of this Student.  # noqa: E501
         :type year_of_joining: str
-        :param section: The section of this Student.  # noqa: E501
-        :type section: str
-        :param roll_number: The roll_number of this Student.  # noqa: E501
-        :type roll_number: str
-        :param fee_structure_for_one_year: The fee_structure_for_one_year of this Student.  # noqa: E501
-        :type fee_structure_for_one_year: float
+        :param mode_of_residence: The mode_of_residence of this Student.  # noqa: E501
+        :type mode_of_residence: str
+        :param primary_contact: The primary_contact of this Student.  # noqa: E501
+        :type primary_contact: str
+        :param secondary_contact: The secondary_contact of this Student.  # noqa: E501
+        :type secondary_contact: str
+        :param first_year_hostel_fee: The first_year_hostel_fee of this Student.  # noqa: E501
+        :type first_year_hostel_fee: float
+        :param first_year_tution_fee: The first_year_tution_fee of this Student.  # noqa: E501
+        :type first_year_tution_fee: float
+        :param second_year_hostel_fee: The second_year_hostel_fee of this Student.  # noqa: E501
+        :type second_year_hostel_fee: float
+        :param second_year_tution_fee: The second_year_tution_fee of this Student.  # noqa: E501
+        :type second_year_tution_fee: float
+        :param pending_first_year_tuition_fee: The pending_first_year_tuition_fee of this Student.  # noqa: E501
+        :type pending_first_year_tuition_fee: float
+        :param pending_first_year_hostel_fee: The pending_first_year_hostel_fee of this Student.  # noqa: E501
+        :type pending_first_year_hostel_fee: float
+        :param pending_second_year_tuition_fee: The pending_second_year_tuition_fee of this Student.  # noqa: E501
+        :type pending_second_year_tuition_fee: float
+        :param pending_second_year_hostel_fee: The pending_second_year_hostel_fee of this Student.  # noqa: E501
+        :type pending_second_year_hostel_fee: float
+        :param paid_first_year_tuition_fee: The paid_first_year_tuition_fee of this Student.  # noqa: E501
+        :type paid_first_year_tuition_fee: float
+        :param paid_first_year_hostel_fee: The paid_first_year_hostel_fee of this Student.  # noqa: E501
+        :type paid_first_year_hostel_fee: float
+        :param paid_second_year_tuition_fee: The paid_second_year_tuition_fee of this Student.  # noqa: E501
+        :type paid_second_year_tuition_fee: float
+        :param paid_second_year_hostel_fee: The paid_second_year_hostel_fee of this Student.  # noqa: E501
+        :type paid_second_year_hostel_fee: float
+        :param student_status: The student_status of this Student.  # noqa: E501
+        :type student_status: str
         """
         self.swagger_types = {
-            'student_id': str,
             'application_number': str,
-            'date_of_joining': date,
-            'branch': str,
-            'name': str,
+            'date_of_joining': str,
+            'course': str,
+            'first_name': str,
+            'sur_name': str,
             'parent_name': str,
-            'primary_number': str,
-            'secondary_number': str,
             'gender': str,
             'batch': str,
+            'branch': str,
             'year_of_joining': str,
-            'section': str,
-            'roll_number': str,
-            'fee_structure_for_one_year': float
+            'mode_of_residence': str,
+            'primary_contact': str,
+            'secondary_contact': str,
+            'first_year_hostel_fee': float,
+            'first_year_tution_fee': float,
+            'second_year_hostel_fee': float,
+            'second_year_tution_fee': float,
+            'pending_first_year_tuition_fee': float,
+            'pending_first_year_hostel_fee': float,
+            'pending_second_year_tuition_fee': float,
+            'pending_second_year_hostel_fee': float,
+            'paid_first_year_tuition_fee': float,
+            'paid_first_year_hostel_fee': float,
+            'paid_second_year_tuition_fee': float,
+            'paid_second_year_hostel_fee': float,
+            'student_status': str
         }
 
         self.attribute_map = {
-            'student_id': 'studentId',
             'application_number': 'applicationNumber',
             'date_of_joining': 'dateOfJoining',
-            'branch': 'branch',
-            'name': 'name',
+            'course': 'course',
+            'first_name': 'firstName',
+            'sur_name': 'surName',
             'parent_name': 'parentName',
-            'primary_number': 'primaryNumber',
-            'secondary_number': 'secondaryNumber',
             'gender': 'gender',
             'batch': 'batch',
+            'branch': 'branch',
             'year_of_joining': 'yearOfJoining',
-            'section': 'section',
-            'roll_number': 'rollNumber',
-            'fee_structure_for_one_year': 'feeStructureForOneYear'
+            'mode_of_residence': 'modeOfResidence',
+            'primary_contact': 'primaryContact',
+            'secondary_contact': 'secondaryContact',
+            'first_year_hostel_fee': 'firstYearHostelFee',
+            'first_year_tution_fee': 'firstYearTutionFee',
+            'second_year_hostel_fee': 'secondYearHostelFee',
+            'second_year_tution_fee': 'secondYearTutionFee',
+            'pending_first_year_tuition_fee': 'pendingFirstYearTuitionFee',
+            'pending_first_year_hostel_fee': 'pendingFirstYearHostelFee',
+            'pending_second_year_tuition_fee': 'pendingSecondYearTuitionFee',
+            'pending_second_year_hostel_fee': 'pendingSecondYearHostelFee',
+            'paid_first_year_tuition_fee': 'paidFirstYearTuitionFee',
+            'paid_first_year_hostel_fee': 'paidFirstYearHostelFee',
+            'paid_second_year_tuition_fee': 'paidSecondYearTuitionFee',
+            'paid_second_year_hostel_fee': 'paidSecondYearHostelFee',
+            'student_status': 'studentStatus'
         }
-        self._student_id = student_id
         self._application_number = application_number
         self._date_of_joining = date_of_joining
-        self._branch = branch
-        self._name = name
+        self._course = course
+        self._first_name = first_name
+        self._sur_name = sur_name
         self._parent_name = parent_name
-        self._primary_number = primary_number
-        self._secondary_number = secondary_number
         self._gender = gender
         self._batch = batch
+        self._branch = branch
         self._year_of_joining = year_of_joining
-        self._section = section
-        self._roll_number = roll_number
-        self._fee_structure_for_one_year = fee_structure_for_one_year
+        self._mode_of_residence = mode_of_residence
+        self._primary_contact = primary_contact
+        self._secondary_contact = secondary_contact
+        self._first_year_hostel_fee = first_year_hostel_fee
+        self._first_year_tution_fee = first_year_tution_fee
+        self._second_year_hostel_fee = second_year_hostel_fee
+        self._second_year_tution_fee = second_year_tution_fee
+        self._pending_first_year_tuition_fee = pending_first_year_tuition_fee
+        self._pending_first_year_hostel_fee = pending_first_year_hostel_fee
+        self._pending_second_year_tuition_fee = pending_second_year_tuition_fee
+        self._pending_second_year_hostel_fee = pending_second_year_hostel_fee
+        self._paid_first_year_tuition_fee = paid_first_year_tuition_fee
+        self._paid_first_year_hostel_fee = paid_first_year_hostel_fee
+        self._paid_second_year_tuition_fee = paid_second_year_tuition_fee
+        self._paid_second_year_hostel_fee = paid_second_year_hostel_fee
+        self._student_status = student_status
 
     @classmethod
     def from_dict(cls, dikt) -> 'Student':
@@ -104,27 +164,6 @@ class Student(Model):
         :rtype: Student
         """
         return util.deserialize_model(dikt, cls)
-
-    @property
-    def student_id(self) -> str:
-        """Gets the student_id of this Student.
-
-
-        :return: The student_id of this Student.
-        :rtype: str
-        """
-        return self._student_id
-
-    @student_id.setter
-    def student_id(self, student_id: str):
-        """Sets the student_id of this Student.
-
-
-        :param student_id: The student_id of this Student.
-        :type student_id: str
-        """
-
-        self._student_id = student_id
 
     @property
     def application_number(self) -> str:
@@ -148,67 +187,88 @@ class Student(Model):
         self._application_number = application_number
 
     @property
-    def date_of_joining(self) -> date:
+    def date_of_joining(self) -> str:
         """Gets the date_of_joining of this Student.
 
 
         :return: The date_of_joining of this Student.
-        :rtype: date
+        :rtype: str
         """
         return self._date_of_joining
 
     @date_of_joining.setter
-    def date_of_joining(self, date_of_joining: date):
+    def date_of_joining(self, date_of_joining: str):
         """Sets the date_of_joining of this Student.
 
 
         :param date_of_joining: The date_of_joining of this Student.
-        :type date_of_joining: date
+        :type date_of_joining: str
         """
 
         self._date_of_joining = date_of_joining
 
     @property
-    def branch(self) -> str:
-        """Gets the branch of this Student.
+    def course(self) -> str:
+        """Gets the course of this Student.
 
 
-        :return: The branch of this Student.
+        :return: The course of this Student.
         :rtype: str
         """
-        return self._branch
+        return self._course
 
-    @branch.setter
-    def branch(self, branch: str):
-        """Sets the branch of this Student.
+    @course.setter
+    def course(self, course: str):
+        """Sets the course of this Student.
 
 
-        :param branch: The branch of this Student.
-        :type branch: str
+        :param course: The course of this Student.
+        :type course: str
         """
 
-        self._branch = branch
+        self._course = course
 
     @property
-    def name(self) -> str:
-        """Gets the name of this Student.
+    def first_name(self) -> str:
+        """Gets the first_name of this Student.
 
 
-        :return: The name of this Student.
+        :return: The first_name of this Student.
         :rtype: str
         """
-        return self._name
+        return self._first_name
 
-    @name.setter
-    def name(self, name: str):
-        """Sets the name of this Student.
+    @first_name.setter
+    def first_name(self, first_name: str):
+        """Sets the first_name of this Student.
 
 
-        :param name: The name of this Student.
-        :type name: str
+        :param first_name: The first_name of this Student.
+        :type first_name: str
         """
 
-        self._name = name
+        self._first_name = first_name
+
+    @property
+    def sur_name(self) -> str:
+        """Gets the sur_name of this Student.
+
+
+        :return: The sur_name of this Student.
+        :rtype: str
+        """
+        return self._sur_name
+
+    @sur_name.setter
+    def sur_name(self, sur_name: str):
+        """Sets the sur_name of this Student.
+
+
+        :param sur_name: The sur_name of this Student.
+        :type sur_name: str
+        """
+
+        self._sur_name = sur_name
 
     @property
     def parent_name(self) -> str:
@@ -232,48 +292,6 @@ class Student(Model):
         self._parent_name = parent_name
 
     @property
-    def primary_number(self) -> str:
-        """Gets the primary_number of this Student.
-
-
-        :return: The primary_number of this Student.
-        :rtype: str
-        """
-        return self._primary_number
-
-    @primary_number.setter
-    def primary_number(self, primary_number: str):
-        """Sets the primary_number of this Student.
-
-
-        :param primary_number: The primary_number of this Student.
-        :type primary_number: str
-        """
-
-        self._primary_number = primary_number
-
-    @property
-    def secondary_number(self) -> str:
-        """Gets the secondary_number of this Student.
-
-
-        :return: The secondary_number of this Student.
-        :rtype: str
-        """
-        return self._secondary_number
-
-    @secondary_number.setter
-    def secondary_number(self, secondary_number: str):
-        """Sets the secondary_number of this Student.
-
-
-        :param secondary_number: The secondary_number of this Student.
-        :type secondary_number: str
-        """
-
-        self._secondary_number = secondary_number
-
-    @property
     def gender(self) -> str:
         """Gets the gender of this Student.
 
@@ -291,7 +309,7 @@ class Student(Model):
         :param gender: The gender of this Student.
         :type gender: str
         """
-        allowed_values = ["Male", "Female", "Other"]  # noqa: E501
+        allowed_values = ["Male", "Female"]  # noqa: E501
         if gender not in allowed_values:
             raise ValueError(
                 "Invalid value for `gender` ({0}), must be one of {1}"
@@ -322,6 +340,27 @@ class Student(Model):
         self._batch = batch
 
     @property
+    def branch(self) -> str:
+        """Gets the branch of this Student.
+
+
+        :return: The branch of this Student.
+        :rtype: str
+        """
+        return self._branch
+
+    @branch.setter
+    def branch(self, branch: str):
+        """Sets the branch of this Student.
+
+
+        :param branch: The branch of this Student.
+        :type branch: str
+        """
+
+        self._branch = branch
+
+    @property
     def year_of_joining(self) -> str:
         """Gets the year_of_joining of this Student.
 
@@ -343,64 +382,343 @@ class Student(Model):
         self._year_of_joining = year_of_joining
 
     @property
-    def section(self) -> str:
-        """Gets the section of this Student.
+    def mode_of_residence(self) -> str:
+        """Gets the mode_of_residence of this Student.
 
 
-        :return: The section of this Student.
+        :return: The mode_of_residence of this Student.
         :rtype: str
         """
-        return self._section
+        return self._mode_of_residence
 
-    @section.setter
-    def section(self, section: str):
-        """Sets the section of this Student.
+    @mode_of_residence.setter
+    def mode_of_residence(self, mode_of_residence: str):
+        """Sets the mode_of_residence of this Student.
 
 
-        :param section: The section of this Student.
-        :type section: str
+        :param mode_of_residence: The mode_of_residence of this Student.
+        :type mode_of_residence: str
         """
 
-        self._section = section
+        self._mode_of_residence = mode_of_residence
 
     @property
-    def roll_number(self) -> str:
-        """Gets the roll_number of this Student.
+    def primary_contact(self) -> str:
+        """Gets the primary_contact of this Student.
 
 
-        :return: The roll_number of this Student.
+        :return: The primary_contact of this Student.
         :rtype: str
         """
-        return self._roll_number
+        return self._primary_contact
 
-    @roll_number.setter
-    def roll_number(self, roll_number: str):
-        """Sets the roll_number of this Student.
+    @primary_contact.setter
+    def primary_contact(self, primary_contact: str):
+        """Sets the primary_contact of this Student.
 
 
-        :param roll_number: The roll_number of this Student.
-        :type roll_number: str
+        :param primary_contact: The primary_contact of this Student.
+        :type primary_contact: str
         """
 
-        self._roll_number = roll_number
+        self._primary_contact = primary_contact
 
     @property
-    def fee_structure_for_one_year(self) -> float:
-        """Gets the fee_structure_for_one_year of this Student.
+    def secondary_contact(self) -> str:
+        """Gets the secondary_contact of this Student.
 
 
-        :return: The fee_structure_for_one_year of this Student.
+        :return: The secondary_contact of this Student.
+        :rtype: str
+        """
+        return self._secondary_contact
+
+    @secondary_contact.setter
+    def secondary_contact(self, secondary_contact: str):
+        """Sets the secondary_contact of this Student.
+
+
+        :param secondary_contact: The secondary_contact of this Student.
+        :type secondary_contact: str
+        """
+
+        self._secondary_contact = secondary_contact
+
+    @property
+    def first_year_hostel_fee(self) -> float:
+        """Gets the first_year_hostel_fee of this Student.
+
+
+        :return: The first_year_hostel_fee of this Student.
         :rtype: float
         """
-        return self._fee_structure_for_one_year
+        return self._first_year_hostel_fee
 
-    @fee_structure_for_one_year.setter
-    def fee_structure_for_one_year(self, fee_structure_for_one_year: float):
-        """Sets the fee_structure_for_one_year of this Student.
+    @first_year_hostel_fee.setter
+    def first_year_hostel_fee(self, first_year_hostel_fee: float):
+        """Sets the first_year_hostel_fee of this Student.
 
 
-        :param fee_structure_for_one_year: The fee_structure_for_one_year of this Student.
-        :type fee_structure_for_one_year: float
+        :param first_year_hostel_fee: The first_year_hostel_fee of this Student.
+        :type first_year_hostel_fee: float
         """
 
-        self._fee_structure_for_one_year = fee_structure_for_one_year
+        self._first_year_hostel_fee = first_year_hostel_fee
+
+    @property
+    def first_year_tution_fee(self) -> float:
+        """Gets the first_year_tution_fee of this Student.
+
+
+        :return: The first_year_tution_fee of this Student.
+        :rtype: float
+        """
+        return self._first_year_tution_fee
+
+    @first_year_tution_fee.setter
+    def first_year_tution_fee(self, first_year_tution_fee: float):
+        """Sets the first_year_tution_fee of this Student.
+
+
+        :param first_year_tution_fee: The first_year_tution_fee of this Student.
+        :type first_year_tution_fee: float
+        """
+
+        self._first_year_tution_fee = first_year_tution_fee
+
+    @property
+    def second_year_hostel_fee(self) -> float:
+        """Gets the second_year_hostel_fee of this Student.
+
+
+        :return: The second_year_hostel_fee of this Student.
+        :rtype: float
+        """
+        return self._second_year_hostel_fee
+
+    @second_year_hostel_fee.setter
+    def second_year_hostel_fee(self, second_year_hostel_fee: float):
+        """Sets the second_year_hostel_fee of this Student.
+
+
+        :param second_year_hostel_fee: The second_year_hostel_fee of this Student.
+        :type second_year_hostel_fee: float
+        """
+
+        self._second_year_hostel_fee = second_year_hostel_fee
+
+    @property
+    def second_year_tution_fee(self) -> float:
+        """Gets the second_year_tution_fee of this Student.
+
+
+        :return: The second_year_tution_fee of this Student.
+        :rtype: float
+        """
+        return self._second_year_tution_fee
+
+    @second_year_tution_fee.setter
+    def second_year_tution_fee(self, second_year_tution_fee: float):
+        """Sets the second_year_tution_fee of this Student.
+
+
+        :param second_year_tution_fee: The second_year_tution_fee of this Student.
+        :type second_year_tution_fee: float
+        """
+
+        self._second_year_tution_fee = second_year_tution_fee
+
+    @property
+    def pending_first_year_tuition_fee(self) -> float:
+        """Gets the pending_first_year_tuition_fee of this Student.
+
+
+        :return: The pending_first_year_tuition_fee of this Student.
+        :rtype: float
+        """
+        return self._pending_first_year_tuition_fee
+
+    @pending_first_year_tuition_fee.setter
+    def pending_first_year_tuition_fee(self, pending_first_year_tuition_fee: float):
+        """Sets the pending_first_year_tuition_fee of this Student.
+
+
+        :param pending_first_year_tuition_fee: The pending_first_year_tuition_fee of this Student.
+        :type pending_first_year_tuition_fee: float
+        """
+
+        self._pending_first_year_tuition_fee = pending_first_year_tuition_fee
+
+    @property
+    def pending_first_year_hostel_fee(self) -> float:
+        """Gets the pending_first_year_hostel_fee of this Student.
+
+
+        :return: The pending_first_year_hostel_fee of this Student.
+        :rtype: float
+        """
+        return self._pending_first_year_hostel_fee
+
+    @pending_first_year_hostel_fee.setter
+    def pending_first_year_hostel_fee(self, pending_first_year_hostel_fee: float):
+        """Sets the pending_first_year_hostel_fee of this Student.
+
+
+        :param pending_first_year_hostel_fee: The pending_first_year_hostel_fee of this Student.
+        :type pending_first_year_hostel_fee: float
+        """
+
+        self._pending_first_year_hostel_fee = pending_first_year_hostel_fee
+
+    @property
+    def pending_second_year_tuition_fee(self) -> float:
+        """Gets the pending_second_year_tuition_fee of this Student.
+
+
+        :return: The pending_second_year_tuition_fee of this Student.
+        :rtype: float
+        """
+        return self._pending_second_year_tuition_fee
+
+    @pending_second_year_tuition_fee.setter
+    def pending_second_year_tuition_fee(self, pending_second_year_tuition_fee: float):
+        """Sets the pending_second_year_tuition_fee of this Student.
+
+
+        :param pending_second_year_tuition_fee: The pending_second_year_tuition_fee of this Student.
+        :type pending_second_year_tuition_fee: float
+        """
+
+        self._pending_second_year_tuition_fee = pending_second_year_tuition_fee
+
+    @property
+    def pending_second_year_hostel_fee(self) -> float:
+        """Gets the pending_second_year_hostel_fee of this Student.
+
+
+        :return: The pending_second_year_hostel_fee of this Student.
+        :rtype: float
+        """
+        return self._pending_second_year_hostel_fee
+
+    @pending_second_year_hostel_fee.setter
+    def pending_second_year_hostel_fee(self, pending_second_year_hostel_fee: float):
+        """Sets the pending_second_year_hostel_fee of this Student.
+
+
+        :param pending_second_year_hostel_fee: The pending_second_year_hostel_fee of this Student.
+        :type pending_second_year_hostel_fee: float
+        """
+
+        self._pending_second_year_hostel_fee = pending_second_year_hostel_fee
+
+    @property
+    def paid_first_year_tuition_fee(self) -> float:
+        """Gets the paid_first_year_tuition_fee of this Student.
+
+
+        :return: The paid_first_year_tuition_fee of this Student.
+        :rtype: float
+        """
+        return self._paid_first_year_tuition_fee
+
+    @paid_first_year_tuition_fee.setter
+    def paid_first_year_tuition_fee(self, paid_first_year_tuition_fee: float):
+        """Sets the paid_first_year_tuition_fee of this Student.
+
+
+        :param paid_first_year_tuition_fee: The paid_first_year_tuition_fee of this Student.
+        :type paid_first_year_tuition_fee: float
+        """
+
+        self._paid_first_year_tuition_fee = paid_first_year_tuition_fee
+
+    @property
+    def paid_first_year_hostel_fee(self) -> float:
+        """Gets the paid_first_year_hostel_fee of this Student.
+
+
+        :return: The paid_first_year_hostel_fee of this Student.
+        :rtype: float
+        """
+        return self._paid_first_year_hostel_fee
+
+    @paid_first_year_hostel_fee.setter
+    def paid_first_year_hostel_fee(self, paid_first_year_hostel_fee: float):
+        """Sets the paid_first_year_hostel_fee of this Student.
+
+
+        :param paid_first_year_hostel_fee: The paid_first_year_hostel_fee of this Student.
+        :type paid_first_year_hostel_fee: float
+        """
+
+        self._paid_first_year_hostel_fee = paid_first_year_hostel_fee
+
+    @property
+    def paid_second_year_tuition_fee(self) -> float:
+        """Gets the paid_second_year_tuition_fee of this Student.
+
+
+        :return: The paid_second_year_tuition_fee of this Student.
+        :rtype: float
+        """
+        return self._paid_second_year_tuition_fee
+
+    @paid_second_year_tuition_fee.setter
+    def paid_second_year_tuition_fee(self, paid_second_year_tuition_fee: float):
+        """Sets the paid_second_year_tuition_fee of this Student.
+
+
+        :param paid_second_year_tuition_fee: The paid_second_year_tuition_fee of this Student.
+        :type paid_second_year_tuition_fee: float
+        """
+
+        self._paid_second_year_tuition_fee = paid_second_year_tuition_fee
+
+    @property
+    def paid_second_year_hostel_fee(self) -> float:
+        """Gets the paid_second_year_hostel_fee of this Student.
+
+
+        :return: The paid_second_year_hostel_fee of this Student.
+        :rtype: float
+        """
+        return self._paid_second_year_hostel_fee
+
+    @paid_second_year_hostel_fee.setter
+    def paid_second_year_hostel_fee(self, paid_second_year_hostel_fee: float):
+        """Sets the paid_second_year_hostel_fee of this Student.
+
+
+        :param paid_second_year_hostel_fee: The paid_second_year_hostel_fee of this Student.
+        :type paid_second_year_hostel_fee: float
+        """
+
+        self._paid_second_year_hostel_fee = paid_second_year_hostel_fee
+
+    @property
+    def student_status(self) -> str:
+        """Gets the student_status of this Student.
+
+
+        :return: The student_status of this Student.
+        :rtype: str
+        """
+        return self._student_status
+
+    @student_status.setter
+    def student_status(self, student_status: str):
+        """Sets the student_status of this Student.
+
+
+        :param student_status: The student_status of this Student.
+        :type student_status: str
+        """
+        allowed_values = ["Active", "Cancelled"]  # noqa: E501
+        if student_status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `student_status` ({0}), must be one of {1}"
+                .format(student_status, allowed_values)
+            )
+
+        self._student_status = student_status

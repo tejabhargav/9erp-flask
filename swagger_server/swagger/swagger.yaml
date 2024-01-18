@@ -10,6 +10,8 @@ info:
 servers:
 - url: http://localhost:8080/v1
 tags:
+- name: authorization
+  description: Operations related to authorization
 - name: branches
   description: Operations related to branches
 - name: employees
@@ -18,44 +20,109 @@ tags:
   description: Operations related to students
 - name: receipts
   description: Operations related to receipts
-- name: approvals
-  description: Operations related to approvals
-- name: reports
-  description: Operations related to reports
+- name: db
+  description: Operations related to database
 paths:
-  /branches:
-    get:
+  /login:
+    post:
       tags:
-      - branches
-      summary: Retrieve all branches
-      description: Get a list of all branches.
-      operationId: branches_get
+      - authorization
+      summary: Login
+      description: Login to the system.
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
       responses:
         "200":
-          description: Successful operation
+          description: Login successful
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BranchList'
+                $ref: '#/components/schemas/Response'
         "401":
           description: Unauthorized access error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
+        "500":
+          description: Internal server error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.branches_controller
+      x-openapi-router-controller: swagger_server.controllers.authorization_controller
+  # /reset_password:
+  #   post:
+  #     tags:
+  #     - authorization
+  #     summary: Reset password
+  #     description: Reset password.
+  #     operationId: reset_password
+  #     requestBody:
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: '#/components/schemas/ResetPasswordRequest'
+  #       required: true
+  #     responses:
+  #       "200":
+  #         description: Password reset successful
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Response'
+  #       "401":
+  #         description: Unauthorized access error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       "500":
+  #         description: Internal server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #     x-openapi-router-controller: swagger_server.controllers.authorization_controller
+  # /send_otp:
+  #   post:
+  #     tags:
+  #     - authorization
+  #     summary: Send OTP
+  #     description: Send OTP.
+  #     operationId: send_otp
+  #     requestBody:
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: '#/components/schemas/SendOtpRequest'
+  #       required: true
+  #     responses:
+  #       "200":
+  #         description: OTP sent successfully
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Response'
+  #       "401":
+  #         description: Unauthorized access error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #       "500":
+  #         description: Internal server error
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: '#/components/schemas/Error'
+  #     x-openapi-router-controller: swagger_server.controllers.authorization_controller
+  /branches:
     post:
       tags:
       - branches
@@ -66,7 +133,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BranchCreateRequest'
+              $ref: '#/components/schemas/Branch'
         required: true
       responses:
         "201":
@@ -94,76 +161,7 @@ paths:
                 message: Resource not found
                 code: 404
       x-openapi-router-controller: swagger_server.controllers.branches_controller
-    delete:
-      tags:
-      - branches
-      summary: Delete a branch
-      description: Delete a branch by ID.
-      operationId: branches_delete
-      parameters:
-      - name: branchId
-        in: query
-        description: ID of the branch to delete
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-      responses:
-        "204":
-          description: Branch deleted successfully
-        "401":
-          description: Unauthorized access error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.branches_controller
   /employees:
-    get:
-      tags:
-      - employees
-      summary: Retrieve all employees
-      description: Get a list of all employees.
-      operationId: employees_get
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EmployeeList'
-        "401":
-          description: Unauthorized access error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.employees_controller
     post:
       tags:
       - employees
@@ -174,7 +172,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EmployeeCreateRequest'
+              $ref: '#/components/schemas/Employee'
         required: true
       responses:
         "201":
@@ -202,76 +200,7 @@ paths:
                 message: Resource not found
                 code: 404
       x-openapi-router-controller: swagger_server.controllers.employees_controller
-    delete:
-      tags:
-      - employees
-      summary: Delete an employee
-      description: Delete an employee by ID.
-      operationId: employees_delete
-      parameters:
-      - name: employeeId
-        in: query
-        description: ID of the employee to delete
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-      responses:
-        "204":
-          description: Employee deleted successfully
-        "401":
-          description: Unauthorized access error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.employees_controller
   /students:
-    get:
-      tags:
-      - students
-      summary: Retrieve all students
-      description: Get a list of all students.
-      operationId: students_get
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StudentList'
-        "401":
-          description: Unauthorized access error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.students_controller
     post:
       tags:
       - students
@@ -282,7 +211,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StudentCreateRequest'
+              $ref: '#/components/schemas/Student'
         required: true
       responses:
         "201":
@@ -310,57 +239,25 @@ paths:
                 message: Resource not found
                 code: 404
       x-openapi-router-controller: swagger_server.controllers.students_controller
-    delete:
-      tags:
-      - students
-      summary: Delete a student
-      description: Delete a student by ID.
-      operationId: students_delete
-      parameters:
-      - name: studentId
-        in: query
-        description: ID of the student to delete
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-      responses:
-        "204":
-          description: Student deleted successfully
-        "401":
-          description: Unauthorized access error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.students_controller
-  /receipts:
+  /db/get:
     get:
       tags:
-      - receipts
-      summary: Retrieve all receipts
-      description: Get a list of all receipts.
-      operationId: receipts_get
+      - db
+      summary: Retrieve all data from database
+      description: Get a list of all data from database.
+      operationId: db_get
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DbGetRequest'
       responses:
         "200":
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReceiptList'
+                $ref: '#/components/schemas/Response'
         "401":
           description: Unauthorized access error
           content:
@@ -379,7 +276,46 @@ paths:
               example:
                 message: Resource not found
                 code: 404
-      x-openapi-router-controller: swagger_server.controllers.receipts_controller
+      x-openapi-router-controller: swagger_server.controllers.db_controller
+  /db/update:
+    post:
+      tags:
+      - db
+      summary: Update data in database
+      description: Update data in database.
+      operationId: db_update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DbUpdateRequest'
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        "401":
+          description: Unauthorized access error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Unauthorized
+                code: 401
+        "404":
+          description: Resource not found error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Resource not found
+                code: 404
+      x-openapi-router-controller: swagger_server.controllers.db_controller
+  /receipt/create:
     post:
       tags:
       - receipts
@@ -398,7 +334,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Receipt'
+                $ref: '#/components/schemas/Response'
         "401":
           description: Unauthorized access error
           content:
@@ -418,484 +354,229 @@ paths:
                 message: Resource not found
                 code: 404
       x-openapi-router-controller: swagger_server.controllers.receipts_controller
-    delete:
-      tags:
-      - receipts
-      summary: Delete a receipt
-      description: Delete a receipt by ID.
-      operationId: receipts_delete
-      parameters:
-      - name: receiptId
-        in: query
-        description: ID of the receipt to delete
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-      responses:
-        "204":
-          description: Receipt deleted successfully
-        "401":
-          description: Unauthorized access error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.receipts_controller
-  /approvals:
-    post:
-      tags:
-      - approvals
-      summary: Approve an entity
-      description: "Approve a student, employee, branch, or receipt."
-      operationId: approvals_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApprovalRequest'
-        required: true
-      responses:
-        "200":
-          description: Approval successful
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApprovalResponse'
-        "401":
-          description: Unauthorized access error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.approvals_controller
-  /reports:
-    get:
-      tags:
-      - reports
-      summary: Generate reports
-      description: "Generate various reports (e.g., receipts report, pending fee report)."
-      operationId: reports_get
-      parameters:
-      - name: reportType
-        in: query
-        description: Type of report to generate
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-          enum:
-          - receipts
-          - pendingFee
-      responses:
-        "200":
-          description: Report generated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ReportData'
-        "401":
-          description: Unauthorized access error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.reports_controller
-  /bulk-update-student:
-    post:
-      summary: Bulk update students
-      description: Update multiple students based on specified criteria.
-      operationId: bulk_update_student_post
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BulkUpdateRequest'
-        required: true
-      responses:
-        "200":
-          description: Students updated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BulkUpdateResponse'
-        "401":
-          description: Unauthorized access error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Unauthorized
-                code: 401
-        "404":
-          description: Resource not found error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-              example:
-                message: Resource not found
-                code: 404
-      x-openapi-router-controller: swagger_server.controllers.default_controller
 components:
   schemas:
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
     Branch:
       type: object
       properties:
-        branchId:
-          type: string
         branchName:
           type: string
         branchCode:
-          maxLength: 3
-          minLength: 3
           type: string
-        address:
+        branchAddress:
           type: string
-        contact:
-          type: string
-        coursesOffered:
-          type: array
-          items:
-            type: string
-        batches:
-          type: array
-          items:
-            type: string
-        yearOfJoining:
-          type: array
-          items:
-            type: string
-        sections:
-          type: array
-          items:
-            type: string
-        accounts:
-          type: array
-          items:
-            type: string
       example:
-        branchCode: branchCode
-        branchId: branchId
-        batches:
-        - batches
-        - batches
-        address: address
-        contact: contact
         branchName: branchName
-        coursesOffered:
-        - coursesOffered
-        - coursesOffered
-        accounts:
-        - accounts
-        - accounts
-        yearOfJoining:
-        - yearOfJoining
-        - yearOfJoining
-        sections:
-        - sections
-        - sections
+        branchCode: branchCode
+        branchAddress: branchAddress
     Employee:
       type: object
       properties:
-        employeeId:
-          type: string
-        name:
+        employeeName:
           type: string
         role:
           type: string
+          enum:
+            - Manager
+            - Accountant
+            - Executive
         branch:
           type: string
         username:
           type: string
         password:
           type: string
-      example:
-        password: password
-        role: role
-        name: name
-        employeeId: employeeId
-        branch: branch
-        username: username
     Student:
       type: object
       properties:
-        studentId:
-          type: string
         applicationNumber:
           type: string
         dateOfJoining:
           type: string
-          format: date
-        branch:
+        course:
           type: string
-        name:
+        firstName:
+          type: string
+        surName:
           type: string
         parentName:
-          type: string
-        primaryNumber:
-          type: string
-        secondaryNumber:
           type: string
         gender:
           type: string
           enum:
-          - Male
-          - Female
-          - Other
+            - Male
+            - Female
         batch:
-          type: string
-        yearOfJoining:
-          type: string
-        section:
-          type: string
-        rollNumber:
-          type: string
-        feeStructureForOneYear:
-          type: number
-      example:
-        secondaryNumber: secondaryNumber
-        gender: Male
-        applicationNumber: applicationNumber
-        batch: batch
-        section: section
-        yearOfJoining: yearOfJoining
-        branch: branch
-        primaryNumber: primaryNumber
-        studentId: studentId
-        dateOfJoining: 2000-01-23
-        parentName: parentName
-        feeStructureForOneYear: 0.80082819046101150206595775671303272247314453125
-        name: name
-        rollNumber: rollNumber
-    Receipt:
-      type: object
-      properties:
-        receiptId:
-          type: string
-        studentId:
-          type: string
-        feeAmount:
-          type: number
-        modeOfPayment:
-          type: string
-          enum:
-          - Cash
-          - Card
-          - Cheque
-          - Bank Transfer/UPI
-          - Concession
-        letterHeadOnReceipt:
-          type: string
-      example:
-        studentId: studentId
-        feeAmount: 0.80082819046101150206595775671303272247314453125
-        letterHeadOnReceipt: letterHeadOnReceipt
-        modeOfPayment: Cash
-        receiptId: receiptId
-    BranchList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Branch'
-    EmployeeList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Employee'
-    StudentList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Student'
-    ReceiptList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Receipt'
-    ApprovalRequest:
-      type: object
-      properties:
-        entity_id:
-          type: string
-        entity_type:
-          type: string
-          enum:
-          - student
-          - employee
-          - branch
-          - receipt
-        approval_status:
-          type: string
-          enum:
-          - approved
-          - rejected
-    ApprovalResponse:
-      type: object
-      properties:
-        message:
-          type: string
-      example:
-        message: message
-    ReportData:
-      type: object
-      properties:
-        report:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReportData_report'
-      example:
-        report:
-        - approvalStatus: approvalStatus
-          dateOfPayment: dateOfPayment
-          year: year
-          modeOfPayment: modeOfPayment
-          studentName: studentName
-          rollNumber: rollNumber
-          batch: batch
-          paid: 0.80082819046101150206595775671303272247314453125
-          branch: branch
-          receiptNumber: receiptNumber
-        - approvalStatus: approvalStatus
-          dateOfPayment: dateOfPayment
-          year: year
-          modeOfPayment: modeOfPayment
-          studentName: studentName
-          rollNumber: rollNumber
-          batch: batch
-          paid: 0.80082819046101150206595775671303272247314453125
-          branch: branch
-          receiptNumber: receiptNumber
-    BranchCreateRequest:
-      type: object
-      properties:
-        branchName:
-          type: string
-        branchCode:
-          maxLength: 3
-          minLength: 3
-          type: string
-        address:
-          type: string
-        contact:
-          type: string
-        coursesOffered:
-          type: array
-          items:
-            type: string
-    EmployeeCreateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        role:
           type: string
         branch:
           type: string
-        username:
+        yearOfJoining:
           type: string
-        password:
+        modeOfResidence:
           type: string
-    StudentCreateRequest:
+        primaryContact:
+          type: string
+        secondaryContact:
+          type: string
+        firstYearHostelFee:
+          type: number
+        firstYearTutionFee:
+          type: number
+        secondYearHostelFee:
+          type: number
+        secondYearTutionFee:
+          type: number
+        pendingFirstYearTuitionFee:
+          type: number
+        pendingFirstYearHostelFee:
+          type: number
+        pendingSecondYearTuitionFee:
+          type: number
+        pendingSecondYearHostelFee:
+          type: number
+        paidFirstYearTuitionFee:
+          type: number
+        paidFirstYearHostelFee:
+          type: number
+        paidSecondYearTuitionFee:
+          type: number
+        paidSecondYearHostelFee:
+          type: number
+        studentStatus:
+          type: string
+          enum:
+            - Active
+            - Cancelled
+    Receipt:
+      type: object
+      properties:
+        receiptNumber:
+          type: string
+        dateOfPayment:
+          type: string
+        studentName:
+          type: string
+        parentName:
+          type: string
+        applicationNumber:
+          type: string
+        registeredMobileNumber:
+          type: string
+        batch:
+          type: string
+        dateOfJoining:
+          type: string
+        stream:
+          type: string
+        gender:
+          type: string
+          enum:
+            - Male
+            - Female
+        branch:
+          type: string
+        residenceType:
+          type: string
+        firstYearTutionFeePayable:
+          type: number
+        firstYearTutionFeePaid:
+          type: number
+        firstYearHostelFeePayable:
+          type: number
+        firstYearHostelFeePaid:
+          type: number
+        secondYearTutionFeePayable:
+          type: number
+        secondYearTutionFeePaid:
+          type: number
+        secondYearHostelFeePayable:
+          type: number
+        secondYearHostelFeePaid:
+          type: number
+        firstYearTotalTutionFeePaid:
+          type: number
+        firstYearTotalTutionFeePending:
+          type: number
+        firstYearTotalHostelFeePaid:
+          type: number
+        firstYearTotalHostelFeePending:
+          type: number
+        secondYearTotalTutionFeePaid:
+          type: number
+        secondYearTotalTutionFeePending:
+          type: number
+        secondYearTotalHostelFeePaid:
+          type: number
+        secondYearTotalHostelFeePending:
+          type: number
+        modeOfPayment:
+          type: string
+        chequeNumber:
+          type: string
+    ReceiptCreateRequest:
       type: object
       properties:
         applicationNumber:
           type: string
-        branch:
-          type: string
-        name:
-          type: string
-        parentName:
-          type: string
-        primaryNumber:
-          type: string
-        secondaryNumber:
-          type: string
-        gender:
+        feeType: 
           type: string
           enum:
-          - Male
-          - Female
-          - Other
-        batch:
-          type: string
-        yearOfJoining:
-          type: string
-        section:
-          type: string
-        rollNumber:
-          type: string
-        feeStructureForOneYear:
-          type: number
-    ReceiptCreateRequest:
-      type: object
-      properties:
-        studentId:
-          type: string
-        feeAmount:
+          - firstYearTuitionFee
+          - firstYearHostelFee
+          - secondYearTuitionFee
+          - secondYearHostelFee
+        amount:
           type: number
         modeOfPayment:
           type: string
-          enum:
-          - Cash
-          - Card
-          - Cheque
-          - Bank Transfer/UPI
-          - Concession
-        letterHeadOnReceipt:
+        chequeNumber:
           type: string
-    BulkUpdateRequest:
+    AddConcessionRequest:
       type: object
       properties:
-        filterCriteria:
-          $ref: '#/components/schemas/BulkUpdateRequest_filterCriteria'
-        updateFields:
-          $ref: '#/components/schemas/BulkUpdateRequest_updateFields'
-    BulkUpdateResponse:
+        applicationNumber:
+          type: string
+        feeType: 
+          type: string
+          enum:
+          - firstYearTutionFee
+          - firstYearHostelFee
+          - secondYearTutionFee
+          - secondYearHostelFee
+        amount:
+          type: number
+        modeOfPayment:
+          type: string
+    Response:
       type: object
       properties:
+        data:
+          type: object
         message:
           type: string
-        updatedCount:
-          type: integer
-      example:
-        updatedCount: 0
-        message: message
+        error:
+          type: string
+    ResetPasswordRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        newPassword:
+          type: string
+        otp:
+          type: string
+    SendOtpRequest:
+      type: object
+      properties:
+        email:
+          type: string 
     Error:
       type: object
       properties:
@@ -903,66 +584,32 @@ components:
           type: string
         details:
           type: string
-    ReportData_report:
+    DbGetRequest:
       type: object
       properties:
-        studentName:
+        collectionName:
           type: string
-        rollNumber:
+        query:
+          type: object
+        type:
           type: string
-        branch:
-          type: string
-        batch:
-          type: string
-        year:
-          type: string
-        paid:
-          type: number
-        modeOfPayment:
-          type: string
-        dateOfPayment:
-          type: string
-        receiptNumber:
-          type: string
-        approvalStatus:
-          type: string
-      example:
-        approvalStatus: approvalStatus
-        dateOfPayment: dateOfPayment
-        year: year
-        modeOfPayment: modeOfPayment
-        studentName: studentName
-        rollNumber: rollNumber
-        batch: batch
-        paid: 0.80082819046101150206595775671303272247314453125
-        branch: branch
-        receiptNumber: receiptNumber
-    BulkUpdateRequest_filterCriteria:
+          enum:
+          - findOne
+          - findMany
+    DbUpdateRequest:
       type: object
       properties:
-        branch:
+        collectionName:
           type: string
-          description: Branch name for filtering
-        batch:
+        query:
+          type: object
+        update:
+          type: object
+        type:
           type: string
-          description: Batch name for filtering
-        yearOfJoining:
-          type: string
-          description: Year of joining for filtering
-      description: Criteria to filter students for bulk update
-    BulkUpdateRequest_updateFields:
-      type: object
-      properties:
-        course:
-          type: string
-          description: Updated course for students
-        batch:
-          type: string
-          description: Updated batch for students
-        yearOfJoining:
-          type: string
-          description: Updated year of joining for students
-      description: Fields to update for matching students
+          enum:
+          - updateOne
+          - updateMany
   responses:
     UnauthorizedError:
       description: Unauthorized access error

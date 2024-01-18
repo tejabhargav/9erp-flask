@@ -14,13 +14,11 @@ class Employee(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, employee_id: str=None, name: str=None, role: str=None, branch: str=None, username: str=None, password: str=None):  # noqa: E501
+    def __init__(self, employee_name: str=None, role: str=None, branch: str=None, username: str=None, password: str=None):  # noqa: E501
         """Employee - a model defined in Swagger
 
-        :param employee_id: The employee_id of this Employee.  # noqa: E501
-        :type employee_id: str
-        :param name: The name of this Employee.  # noqa: E501
-        :type name: str
+        :param employee_name: The employee_name of this Employee.  # noqa: E501
+        :type employee_name: str
         :param role: The role of this Employee.  # noqa: E501
         :type role: str
         :param branch: The branch of this Employee.  # noqa: E501
@@ -31,8 +29,7 @@ class Employee(Model):
         :type password: str
         """
         self.swagger_types = {
-            'employee_id': str,
-            'name': str,
+            'employee_name': str,
             'role': str,
             'branch': str,
             'username': str,
@@ -40,15 +37,13 @@ class Employee(Model):
         }
 
         self.attribute_map = {
-            'employee_id': 'employeeId',
-            'name': 'name',
+            'employee_name': 'employeeName',
             'role': 'role',
             'branch': 'branch',
             'username': 'username',
             'password': 'password'
         }
-        self._employee_id = employee_id
-        self._name = name
+        self._employee_name = employee_name
         self._role = role
         self._branch = branch
         self._username = username
@@ -66,46 +61,25 @@ class Employee(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def employee_id(self) -> str:
-        """Gets the employee_id of this Employee.
+    def employee_name(self) -> str:
+        """Gets the employee_name of this Employee.
 
 
-        :return: The employee_id of this Employee.
+        :return: The employee_name of this Employee.
         :rtype: str
         """
-        return self._employee_id
+        return self._employee_name
 
-    @employee_id.setter
-    def employee_id(self, employee_id: str):
-        """Sets the employee_id of this Employee.
+    @employee_name.setter
+    def employee_name(self, employee_name: str):
+        """Sets the employee_name of this Employee.
 
 
-        :param employee_id: The employee_id of this Employee.
-        :type employee_id: str
+        :param employee_name: The employee_name of this Employee.
+        :type employee_name: str
         """
 
-        self._employee_id = employee_id
-
-    @property
-    def name(self) -> str:
-        """Gets the name of this Employee.
-
-
-        :return: The name of this Employee.
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name: str):
-        """Sets the name of this Employee.
-
-
-        :param name: The name of this Employee.
-        :type name: str
-        """
-
-        self._name = name
+        self._employee_name = employee_name
 
     @property
     def role(self) -> str:
@@ -125,6 +99,12 @@ class Employee(Model):
         :param role: The role of this Employee.
         :type role: str
         """
+        allowed_values = ["Manager", "Accountant", "Executive"]  # noqa: E501
+        if role not in allowed_values:
+            raise ValueError(
+                "Invalid value for `role` ({0}), must be one of {1}"
+                .format(role, allowed_values)
+            )
 
         self._role = role
 
