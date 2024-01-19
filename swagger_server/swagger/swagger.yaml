@@ -240,12 +240,50 @@ paths:
                 code: 404
       x-openapi-router-controller: swagger_server.controllers.students_controller
   /db/get:
-    get:
+    post:
       tags:
       - db
       summary: Retrieve all data from database
       description: Get a list of all data from database.
       operationId: db_get
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DbGetRequest'
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        "401":
+          description: Unauthorized access error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Unauthorized
+                code: 401
+        "404":
+          description: Resource not found error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Resource not found
+                code: 404
+      x-openapi-router-controller: swagger_server.controllers.db_controller
+  /db/get_excel:
+    post:
+      tags:
+      - db
+      summary: Retrieve all data from database
+      description: Get a list of all data from database.
+      operationId: get_excel
       requestBody:
         content:
           application/json:
