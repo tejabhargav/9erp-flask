@@ -465,11 +465,11 @@ components:
           type: string
         firstYearHostelFee:
           type: number
-        firstYearTutionFee:
+        firstYearTuitionFee:
           type: number
         secondYearHostelFee:
           type: number
-        secondYearTutionFee:
+        secondYearTuitionFee:
           type: number
         pendingFirstYearTuitionFee:
           type: number
@@ -522,33 +522,33 @@ components:
           type: string
         residenceType:
           type: string
-        firstYearTutionFeePayable:
+        firstYearTuitionFeePayable:
           type: number
-        firstYearTutionFeePaid:
+        firstYearTuitionFeePaid:
           type: number
         firstYearHostelFeePayable:
           type: number
         firstYearHostelFeePaid:
           type: number
-        secondYearTutionFeePayable:
+        secondYearTuitionFeePayable:
           type: number
-        secondYearTutionFeePaid:
+        secondYearTuitionFeePaid:
           type: number
         secondYearHostelFeePayable:
           type: number
         secondYearHostelFeePaid:
           type: number
-        firstYearTotalTutionFeePaid:
+        firstYearTotalTuitionFeePaid:
           type: number
-        firstYearTotalTutionFeePending:
+        firstYearTotalTuitionFeePending:
           type: number
         firstYearTotalHostelFeePaid:
           type: number
         firstYearTotalHostelFeePending:
           type: number
-        secondYearTotalTutionFeePaid:
+        secondYearTotalTuitionFeePaid:
           type: number
-        secondYearTotalTutionFeePending:
+        secondYearTotalTuitionFeePending:
           type: number
         secondYearTotalHostelFeePaid:
           type: number
@@ -584,9 +584,9 @@ components:
         feeType: 
           type: string
           enum:
-          - firstYearTutionFee
+          - firstYearTuitionFee
           - firstYearHostelFee
-          - secondYearTutionFee
+          - secondYearTuitionFee
           - secondYearHostelFee
         amount:
           type: number

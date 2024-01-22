@@ -94,7 +94,7 @@ class AddConcessionRequest(Model):
         :param fee_type: The fee_type of this AddConcessionRequest.
         :type fee_type: str
         """
-        allowed_values = ["firstYearTutionFee", "firstYearHostelFee", "secondYearTutionFee", "secondYearHostelFee"]  # noqa: E501
+        allowed_values = ["firstYearTuitionFee", "firstYearHostelFee", "secondYearTuitionFee", "secondYearHostelFee"]  # noqa: E501
         if fee_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `fee_type` ({0}), must be one of {1}"

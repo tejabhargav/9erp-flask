@@ -14,7 +14,7 @@ class Receipt(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, receipt_number: str=None, date_of_payment: str=None, student_name: str=None, parent_name: str=None, application_number: str=None, registered_mobile_number: str=None, batch: str=None, date_of_joining: str=None, stream: str=None, gender: str=None, branch: str=None, residence_type: str=None, first_year_tution_fee_payable: float=None, first_year_tution_fee_paid: float=None, first_year_hostel_fee_payable: float=None, first_year_hostel_fee_paid: float=None, second_year_tution_fee_payable: float=None, second_year_tution_fee_paid: float=None, second_year_hostel_fee_payable: float=None, second_year_hostel_fee_paid: float=None, first_year_total_tution_fee_paid: float=None, first_year_total_tution_fee_pending: float=None, first_year_total_hostel_fee_paid: float=None, first_year_total_hostel_fee_pending: float=None, second_year_total_tution_fee_paid: float=None, second_year_total_tution_fee_pending: float=None, second_year_total_hostel_fee_paid: float=None, second_year_total_hostel_fee_pending: float=None, mode_of_payment: str=None, cheque_number: str=None):  # noqa: E501
+    def __init__(self, receipt_number: str=None, date_of_payment: str=None, student_name: str=None, parent_name: str=None, application_number: str=None, registered_mobile_number: str=None, batch: str=None, date_of_joining: str=None, stream: str=None, gender: str=None, branch: str=None, residence_type: str=None, first_year_tuition_fee_payable: float=None, first_year_tuition_fee_paid: float=None, first_year_hostel_fee_payable: float=None, first_year_hostel_fee_paid: float=None, second_year_tuition_fee_payable: float=None, second_year_tuition_fee_paid: float=None, second_year_hostel_fee_payable: float=None, second_year_hostel_fee_paid: float=None, first_year_total_tuition_fee_paid: float=None, first_year_total_tuition_fee_pending: float=None, first_year_total_hostel_fee_paid: float=None, first_year_total_hostel_fee_pending: float=None, second_year_total_tuition_fee_paid: float=None, second_year_total_tuition_fee_pending: float=None, second_year_total_hostel_fee_paid: float=None, second_year_total_hostel_fee_pending: float=None, mode_of_payment: str=None, cheque_number: str=None):  # noqa: E501
         """Receipt - a model defined in Swagger
 
         :param receipt_number: The receipt_number of this Receipt.  # noqa: E501
@@ -41,34 +41,34 @@ class Receipt(Model):
         :type branch: str
         :param residence_type: The residence_type of this Receipt.  # noqa: E501
         :type residence_type: str
-        :param first_year_tution_fee_payable: The first_year_tution_fee_payable of this Receipt.  # noqa: E501
-        :type first_year_tution_fee_payable: float
-        :param first_year_tution_fee_paid: The first_year_tution_fee_paid of this Receipt.  # noqa: E501
-        :type first_year_tution_fee_paid: float
+        :param first_year_tuition_fee_payable: The first_year_tuition_fee_payable of this Receipt.  # noqa: E501
+        :type first_year_tuition_fee_payable: float
+        :param first_year_tuition_fee_paid: The first_year_tuition_fee_paid of this Receipt.  # noqa: E501
+        :type first_year_tuition_fee_paid: float
         :param first_year_hostel_fee_payable: The first_year_hostel_fee_payable of this Receipt.  # noqa: E501
         :type first_year_hostel_fee_payable: float
         :param first_year_hostel_fee_paid: The first_year_hostel_fee_paid of this Receipt.  # noqa: E501
         :type first_year_hostel_fee_paid: float
-        :param second_year_tution_fee_payable: The second_year_tution_fee_payable of this Receipt.  # noqa: E501
-        :type second_year_tution_fee_payable: float
-        :param second_year_tution_fee_paid: The second_year_tution_fee_paid of this Receipt.  # noqa: E501
-        :type second_year_tution_fee_paid: float
+        :param second_year_tuition_fee_payable: The second_year_tuition_fee_payable of this Receipt.  # noqa: E501
+        :type second_year_tuition_fee_payable: float
+        :param second_year_tuition_fee_paid: The second_year_tuition_fee_paid of this Receipt.  # noqa: E501
+        :type second_year_tuition_fee_paid: float
         :param second_year_hostel_fee_payable: The second_year_hostel_fee_payable of this Receipt.  # noqa: E501
         :type second_year_hostel_fee_payable: float
         :param second_year_hostel_fee_paid: The second_year_hostel_fee_paid of this Receipt.  # noqa: E501
         :type second_year_hostel_fee_paid: float
-        :param first_year_total_tution_fee_paid: The first_year_total_tution_fee_paid of this Receipt.  # noqa: E501
-        :type first_year_total_tution_fee_paid: float
-        :param first_year_total_tution_fee_pending: The first_year_total_tution_fee_pending of this Receipt.  # noqa: E501
-        :type first_year_total_tution_fee_pending: float
+        :param first_year_total_tuition_fee_paid: The first_year_total_tuition_fee_paid of this Receipt.  # noqa: E501
+        :type first_year_total_tuition_fee_paid: float
+        :param first_year_total_tuition_fee_pending: The first_year_total_tuition_fee_pending of this Receipt.  # noqa: E501
+        :type first_year_total_tuition_fee_pending: float
         :param first_year_total_hostel_fee_paid: The first_year_total_hostel_fee_paid of this Receipt.  # noqa: E501
         :type first_year_total_hostel_fee_paid: float
         :param first_year_total_hostel_fee_pending: The first_year_total_hostel_fee_pending of this Receipt.  # noqa: E501
         :type first_year_total_hostel_fee_pending: float
-        :param second_year_total_tution_fee_paid: The second_year_total_tution_fee_paid of this Receipt.  # noqa: E501
-        :type second_year_total_tution_fee_paid: float
-        :param second_year_total_tution_fee_pending: The second_year_total_tution_fee_pending of this Receipt.  # noqa: E501
-        :type second_year_total_tution_fee_pending: float
+        :param second_year_total_tuition_fee_paid: The second_year_total_tuition_fee_paid of this Receipt.  # noqa: E501
+        :type second_year_total_tuition_fee_paid: float
+        :param second_year_total_tuition_fee_pending: The second_year_total_tuition_fee_pending of this Receipt.  # noqa: E501
+        :type second_year_total_tuition_fee_pending: float
         :param second_year_total_hostel_fee_paid: The second_year_total_hostel_fee_paid of this Receipt.  # noqa: E501
         :type second_year_total_hostel_fee_paid: float
         :param second_year_total_hostel_fee_pending: The second_year_total_hostel_fee_pending of this Receipt.  # noqa: E501
@@ -91,20 +91,20 @@ class Receipt(Model):
             'gender': str,
             'branch': str,
             'residence_type': str,
-            'first_year_tution_fee_payable': float,
-            'first_year_tution_fee_paid': float,
+            'first_year_tuition_fee_payable': float,
+            'first_year_tuition_fee_paid': float,
             'first_year_hostel_fee_payable': float,
             'first_year_hostel_fee_paid': float,
-            'second_year_tution_fee_payable': float,
-            'second_year_tution_fee_paid': float,
+            'second_year_tuition_fee_payable': float,
+            'second_year_tuition_fee_paid': float,
             'second_year_hostel_fee_payable': float,
             'second_year_hostel_fee_paid': float,
-            'first_year_total_tution_fee_paid': float,
-            'first_year_total_tution_fee_pending': float,
+            'first_year_total_tuition_fee_paid': float,
+            'first_year_total_tuition_fee_pending': float,
             'first_year_total_hostel_fee_paid': float,
             'first_year_total_hostel_fee_pending': float,
-            'second_year_total_tution_fee_paid': float,
-            'second_year_total_tution_fee_pending': float,
+            'second_year_total_tuition_fee_paid': float,
+            'second_year_total_tuition_fee_pending': float,
             'second_year_total_hostel_fee_paid': float,
             'second_year_total_hostel_fee_pending': float,
             'mode_of_payment': str,
@@ -124,20 +124,20 @@ class Receipt(Model):
             'gender': 'gender',
             'branch': 'branch',
             'residence_type': 'residenceType',
-            'first_year_tution_fee_payable': 'firstYearTutionFeePayable',
-            'first_year_tution_fee_paid': 'firstYearTutionFeePaid',
+            'first_year_tuition_fee_payable': 'firstYearTuitionFeePayable',
+            'first_year_tuition_fee_paid': 'firstYearTuitionFeePaid',
             'first_year_hostel_fee_payable': 'firstYearHostelFeePayable',
             'first_year_hostel_fee_paid': 'firstYearHostelFeePaid',
-            'second_year_tution_fee_payable': 'secondYearTutionFeePayable',
-            'second_year_tution_fee_paid': 'secondYearTutionFeePaid',
+            'second_year_tuition_fee_payable': 'secondYearTuitionFeePayable',
+            'second_year_tuition_fee_paid': 'secondYearTuitionFeePaid',
             'second_year_hostel_fee_payable': 'secondYearHostelFeePayable',
             'second_year_hostel_fee_paid': 'secondYearHostelFeePaid',
-            'first_year_total_tution_fee_paid': 'firstYearTotalTutionFeePaid',
-            'first_year_total_tution_fee_pending': 'firstYearTotalTutionFeePending',
+            'first_year_total_tuition_fee_paid': 'firstYearTotalTuitionFeePaid',
+            'first_year_total_tuition_fee_pending': 'firstYearTotalTuitionFeePending',
             'first_year_total_hostel_fee_paid': 'firstYearTotalHostelFeePaid',
             'first_year_total_hostel_fee_pending': 'firstYearTotalHostelFeePending',
-            'second_year_total_tution_fee_paid': 'secondYearTotalTutionFeePaid',
-            'second_year_total_tution_fee_pending': 'secondYearTotalTutionFeePending',
+            'second_year_total_tuition_fee_paid': 'secondYearTotalTuitionFeePaid',
+            'second_year_total_tuition_fee_pending': 'secondYearTotalTuitionFeePending',
             'second_year_total_hostel_fee_paid': 'secondYearTotalHostelFeePaid',
             'second_year_total_hostel_fee_pending': 'secondYearTotalHostelFeePending',
             'mode_of_payment': 'modeOfPayment',
@@ -155,20 +155,20 @@ class Receipt(Model):
         self._gender = gender
         self._branch = branch
         self._residence_type = residence_type
-        self._first_year_tution_fee_payable = first_year_tution_fee_payable
-        self._first_year_tution_fee_paid = first_year_tution_fee_paid
+        self._first_year_tuition_fee_payable = first_year_tuition_fee_payable
+        self._first_year_tuition_fee_paid = first_year_tuition_fee_paid
         self._first_year_hostel_fee_payable = first_year_hostel_fee_payable
         self._first_year_hostel_fee_paid = first_year_hostel_fee_paid
-        self._second_year_tution_fee_payable = second_year_tution_fee_payable
-        self._second_year_tution_fee_paid = second_year_tution_fee_paid
+        self._second_year_tuition_fee_payable = second_year_tuition_fee_payable
+        self._second_year_tuition_fee_paid = second_year_tuition_fee_paid
         self._second_year_hostel_fee_payable = second_year_hostel_fee_payable
         self._second_year_hostel_fee_paid = second_year_hostel_fee_paid
-        self._first_year_total_tution_fee_paid = first_year_total_tution_fee_paid
-        self._first_year_total_tution_fee_pending = first_year_total_tution_fee_pending
+        self._first_year_total_tuition_fee_paid = first_year_total_tuition_fee_paid
+        self._first_year_total_tuition_fee_pending = first_year_total_tuition_fee_pending
         self._first_year_total_hostel_fee_paid = first_year_total_hostel_fee_paid
         self._first_year_total_hostel_fee_pending = first_year_total_hostel_fee_pending
-        self._second_year_total_tution_fee_paid = second_year_total_tution_fee_paid
-        self._second_year_total_tution_fee_pending = second_year_total_tution_fee_pending
+        self._second_year_total_tuition_fee_paid = second_year_total_tuition_fee_paid
+        self._second_year_total_tuition_fee_pending = second_year_total_tuition_fee_pending
         self._second_year_total_hostel_fee_paid = second_year_total_hostel_fee_paid
         self._second_year_total_hostel_fee_pending = second_year_total_hostel_fee_pending
         self._mode_of_payment = mode_of_payment
@@ -444,46 +444,46 @@ class Receipt(Model):
         self._residence_type = residence_type
 
     @property
-    def first_year_tution_fee_payable(self) -> float:
-        """Gets the first_year_tution_fee_payable of this Receipt.
+    def first_year_tuition_fee_payable(self) -> float:
+        """Gets the first_year_tuition_fee_payable of this Receipt.
 
 
-        :return: The first_year_tution_fee_payable of this Receipt.
+        :return: The first_year_tuition_fee_payable of this Receipt.
         :rtype: float
         """
-        return self._first_year_tution_fee_payable
+        return self._first_year_tuition_fee_payable
 
-    @first_year_tution_fee_payable.setter
-    def first_year_tution_fee_payable(self, first_year_tution_fee_payable: float):
-        """Sets the first_year_tution_fee_payable of this Receipt.
+    @first_year_tuition_fee_payable.setter
+    def first_year_tuition_fee_payable(self, first_year_tuition_fee_payable: float):
+        """Sets the first_year_tuition_fee_payable of this Receipt.
 
 
-        :param first_year_tution_fee_payable: The first_year_tution_fee_payable of this Receipt.
-        :type first_year_tution_fee_payable: float
+        :param first_year_tuition_fee_payable: The first_year_tuition_fee_payable of this Receipt.
+        :type first_year_tuition_fee_payable: float
         """
 
-        self._first_year_tution_fee_payable = first_year_tution_fee_payable
+        self._first_year_tuition_fee_payable = first_year_tuition_fee_payable
 
     @property
-    def first_year_tution_fee_paid(self) -> float:
-        """Gets the first_year_tution_fee_paid of this Receipt.
+    def first_year_tuition_fee_paid(self) -> float:
+        """Gets the first_year_tuition_fee_paid of this Receipt.
 
 
-        :return: The first_year_tution_fee_paid of this Receipt.
+        :return: The first_year_tuition_fee_paid of this Receipt.
         :rtype: float
         """
-        return self._first_year_tution_fee_paid
+        return self._first_year_tuition_fee_paid
 
-    @first_year_tution_fee_paid.setter
-    def first_year_tution_fee_paid(self, first_year_tution_fee_paid: float):
-        """Sets the first_year_tution_fee_paid of this Receipt.
+    @first_year_tuition_fee_paid.setter
+    def first_year_tuition_fee_paid(self, first_year_tuition_fee_paid: float):
+        """Sets the first_year_tuition_fee_paid of this Receipt.
 
 
-        :param first_year_tution_fee_paid: The first_year_tution_fee_paid of this Receipt.
-        :type first_year_tution_fee_paid: float
+        :param first_year_tuition_fee_paid: The first_year_tuition_fee_paid of this Receipt.
+        :type first_year_tuition_fee_paid: float
         """
 
-        self._first_year_tution_fee_paid = first_year_tution_fee_paid
+        self._first_year_tuition_fee_paid = first_year_tuition_fee_paid
 
     @property
     def first_year_hostel_fee_payable(self) -> float:
@@ -528,46 +528,46 @@ class Receipt(Model):
         self._first_year_hostel_fee_paid = first_year_hostel_fee_paid
 
     @property
-    def second_year_tution_fee_payable(self) -> float:
-        """Gets the second_year_tution_fee_payable of this Receipt.
+    def second_year_tuition_fee_payable(self) -> float:
+        """Gets the second_year_tuition_fee_payable of this Receipt.
 
 
-        :return: The second_year_tution_fee_payable of this Receipt.
+        :return: The second_year_tuition_fee_payable of this Receipt.
         :rtype: float
         """
-        return self._second_year_tution_fee_payable
+        return self._second_year_tuition_fee_payable
 
-    @second_year_tution_fee_payable.setter
-    def second_year_tution_fee_payable(self, second_year_tution_fee_payable: float):
-        """Sets the second_year_tution_fee_payable of this Receipt.
+    @second_year_tuition_fee_payable.setter
+    def second_year_tuition_fee_payable(self, second_year_tuition_fee_payable: float):
+        """Sets the second_year_tuition_fee_payable of this Receipt.
 
 
-        :param second_year_tution_fee_payable: The second_year_tution_fee_payable of this Receipt.
-        :type second_year_tution_fee_payable: float
+        :param second_year_tuition_fee_payable: The second_year_tuition_fee_payable of this Receipt.
+        :type second_year_tuition_fee_payable: float
         """
 
-        self._second_year_tution_fee_payable = second_year_tution_fee_payable
+        self._second_year_tuition_fee_payable = second_year_tuition_fee_payable
 
     @property
-    def second_year_tution_fee_paid(self) -> float:
-        """Gets the second_year_tution_fee_paid of this Receipt.
+    def second_year_tuition_fee_paid(self) -> float:
+        """Gets the second_year_tuition_fee_paid of this Receipt.
 
 
-        :return: The second_year_tution_fee_paid of this Receipt.
+        :return: The second_year_tuition_fee_paid of this Receipt.
         :rtype: float
         """
-        return self._second_year_tution_fee_paid
+        return self._second_year_tuition_fee_paid
 
-    @second_year_tution_fee_paid.setter
-    def second_year_tution_fee_paid(self, second_year_tution_fee_paid: float):
-        """Sets the second_year_tution_fee_paid of this Receipt.
+    @second_year_tuition_fee_paid.setter
+    def second_year_tuition_fee_paid(self, second_year_tuition_fee_paid: float):
+        """Sets the second_year_tuition_fee_paid of this Receipt.
 
 
-        :param second_year_tution_fee_paid: The second_year_tution_fee_paid of this Receipt.
-        :type second_year_tution_fee_paid: float
+        :param second_year_tuition_fee_paid: The second_year_tuition_fee_paid of this Receipt.
+        :type second_year_tuition_fee_paid: float
         """
 
-        self._second_year_tution_fee_paid = second_year_tution_fee_paid
+        self._second_year_tuition_fee_paid = second_year_tuition_fee_paid
 
     @property
     def second_year_hostel_fee_payable(self) -> float:
@@ -612,46 +612,46 @@ class Receipt(Model):
         self._second_year_hostel_fee_paid = second_year_hostel_fee_paid
 
     @property
-    def first_year_total_tution_fee_paid(self) -> float:
-        """Gets the first_year_total_tution_fee_paid of this Receipt.
+    def first_year_total_tuition_fee_paid(self) -> float:
+        """Gets the first_year_total_tuition_fee_paid of this Receipt.
 
 
-        :return: The first_year_total_tution_fee_paid of this Receipt.
+        :return: The first_year_total_tuition_fee_paid of this Receipt.
         :rtype: float
         """
-        return self._first_year_total_tution_fee_paid
+        return self._first_year_total_tuition_fee_paid
 
-    @first_year_total_tution_fee_paid.setter
-    def first_year_total_tution_fee_paid(self, first_year_total_tution_fee_paid: float):
-        """Sets the first_year_total_tution_fee_paid of this Receipt.
+    @first_year_total_tuition_fee_paid.setter
+    def first_year_total_tuition_fee_paid(self, first_year_total_tuition_fee_paid: float):
+        """Sets the first_year_total_tuition_fee_paid of this Receipt.
 
 
-        :param first_year_total_tution_fee_paid: The first_year_total_tution_fee_paid of this Receipt.
-        :type first_year_total_tution_fee_paid: float
+        :param first_year_total_tuition_fee_paid: The first_year_total_tuition_fee_paid of this Receipt.
+        :type first_year_total_tuition_fee_paid: float
         """
 
-        self._first_year_total_tution_fee_paid = first_year_total_tution_fee_paid
+        self._first_year_total_tuition_fee_paid = first_year_total_tuition_fee_paid
 
     @property
-    def first_year_total_tution_fee_pending(self) -> float:
-        """Gets the first_year_total_tution_fee_pending of this Receipt.
+    def first_year_total_tuition_fee_pending(self) -> float:
+        """Gets the first_year_total_tuition_fee_pending of this Receipt.
 
 
-        :return: The first_year_total_tution_fee_pending of this Receipt.
+        :return: The first_year_total_tuition_fee_pending of this Receipt.
         :rtype: float
         """
-        return self._first_year_total_tution_fee_pending
+        return self._first_year_total_tuition_fee_pending
 
-    @first_year_total_tution_fee_pending.setter
-    def first_year_total_tution_fee_pending(self, first_year_total_tution_fee_pending: float):
-        """Sets the first_year_total_tution_fee_pending of this Receipt.
+    @first_year_total_tuition_fee_pending.setter
+    def first_year_total_tuition_fee_pending(self, first_year_total_tuition_fee_pending: float):
+        """Sets the first_year_total_tuition_fee_pending of this Receipt.
 
 
-        :param first_year_total_tution_fee_pending: The first_year_total_tution_fee_pending of this Receipt.
-        :type first_year_total_tution_fee_pending: float
+        :param first_year_total_tuition_fee_pending: The first_year_total_tuition_fee_pending of this Receipt.
+        :type first_year_total_tuition_fee_pending: float
         """
 
-        self._first_year_total_tution_fee_pending = first_year_total_tution_fee_pending
+        self._first_year_total_tuition_fee_pending = first_year_total_tuition_fee_pending
 
     @property
     def first_year_total_hostel_fee_paid(self) -> float:
@@ -696,46 +696,46 @@ class Receipt(Model):
         self._first_year_total_hostel_fee_pending = first_year_total_hostel_fee_pending
 
     @property
-    def second_year_total_tution_fee_paid(self) -> float:
-        """Gets the second_year_total_tution_fee_paid of this Receipt.
+    def second_year_total_tuition_fee_paid(self) -> float:
+        """Gets the second_year_total_tuition_fee_paid of this Receipt.
 
 
-        :return: The second_year_total_tution_fee_paid of this Receipt.
+        :return: The second_year_total_tuition_fee_paid of this Receipt.
         :rtype: float
         """
-        return self._second_year_total_tution_fee_paid
+        return self._second_year_total_tuition_fee_paid
 
-    @second_year_total_tution_fee_paid.setter
-    def second_year_total_tution_fee_paid(self, second_year_total_tution_fee_paid: float):
-        """Sets the second_year_total_tution_fee_paid of this Receipt.
+    @second_year_total_tuition_fee_paid.setter
+    def second_year_total_tuition_fee_paid(self, second_year_total_tuition_fee_paid: float):
+        """Sets the second_year_total_tuition_fee_paid of this Receipt.
 
 
-        :param second_year_total_tution_fee_paid: The second_year_total_tution_fee_paid of this Receipt.
-        :type second_year_total_tution_fee_paid: float
+        :param second_year_total_tuition_fee_paid: The second_year_total_tuition_fee_paid of this Receipt.
+        :type second_year_total_tuition_fee_paid: float
         """
 
-        self._second_year_total_tution_fee_paid = second_year_total_tution_fee_paid
+        self._second_year_total_tuition_fee_paid = second_year_total_tuition_fee_paid
 
     @property
-    def second_year_total_tution_fee_pending(self) -> float:
-        """Gets the second_year_total_tution_fee_pending of this Receipt.
+    def second_year_total_tuition_fee_pending(self) -> float:
+        """Gets the second_year_total_tuition_fee_pending of this Receipt.
 
 
-        :return: The second_year_total_tution_fee_pending of this Receipt.
+        :return: The second_year_total_tuition_fee_pending of this Receipt.
         :rtype: float
         """
-        return self._second_year_total_tution_fee_pending
+        return self._second_year_total_tuition_fee_pending
 
-    @second_year_total_tution_fee_pending.setter
-    def second_year_total_tution_fee_pending(self, second_year_total_tution_fee_pending: float):
-        """Sets the second_year_total_tution_fee_pending of this Receipt.
+    @second_year_total_tuition_fee_pending.setter
+    def second_year_total_tuition_fee_pending(self, second_year_total_tuition_fee_pending: float):
+        """Sets the second_year_total_tuition_fee_pending of this Receipt.
 
 
-        :param second_year_total_tution_fee_pending: The second_year_total_tution_fee_pending of this Receipt.
-        :type second_year_total_tution_fee_pending: float
+        :param second_year_total_tuition_fee_pending: The second_year_total_tuition_fee_pending of this Receipt.
+        :type second_year_total_tuition_fee_pending: float
         """
 
-        self._second_year_total_tution_fee_pending = second_year_total_tution_fee_pending
+        self._second_year_total_tuition_fee_pending = second_year_total_tuition_fee_pending
 
     @property
     def second_year_total_hostel_fee_paid(self) -> float:

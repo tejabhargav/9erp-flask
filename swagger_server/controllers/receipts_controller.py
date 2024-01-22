@@ -35,12 +35,12 @@ def receipts_post(body):
                 logger.info(f"final_amount: {final_amount}")
                 paid_amount = student.paid_first_year_tuition_fee + body.amount
                 logger.info(f"paid_amount: {paid_amount}")
-                receipt.first_year_tution_fee_paid = body.amount
-                logger.info(f"receipt.first_year_tution_fee_paid: {receipt.first_year_tution_fee_paid}")
+                receipt.first_year_tuition_fee_paid = body.amount
+                logger.info(f"receipt.first_year_tuition_fee_paid: {receipt.first_year_tuition_fee_paid}")
             elif type == 'secondYearTuitionFee':
                 final_amount = student.pending_second_year_tuition_fee - body.amount
                 paid_amount = student.paid_second_year_tuition_fee + body.amount
-                receipt.second_year_tution_fee_paid = body.amount
+                receipt.second_year_tuition_fee_paid = body.amount
             elif type == 'firstYearHostelFee':
                 final_amount = student.pending_first_year_hostel_fee - body.amount
                 paid_amount = student.paid_first_year_hostel_fee + body.amount
@@ -110,17 +110,17 @@ def receipts_post(body):
             receipt.gender = student.gender
             receipt.branch = student.branch
             receipt.residence_type = student.mode_of_residence
-            receipt.first_year_tution_fee_payable = student.first_year_tution_fee  # noqa: E501
+            receipt.first_year_tuition_fee_payable = student.first_year_tuition_fee  # noqa: E501
             receipt.first_year_hostel_fee_payable = student.first_year_hostel_fee  # noqa: E501
-            receipt.second_year_tution_fee_payable = student.second_year_tution_fee  # noqa: E501
+            receipt.second_year_tuition_fee_payable = student.second_year_tuition_fee  # noqa: E501
             receipt.second_year_hostel_fee_payable = student.second_year_hostel_fee  # noqa: E501
-            receipt.first_year_total_tution_fee_paid = student.paid_first_year_tuition_fee  # noqa: E501
+            receipt.first_year_total_tuition_fee_paid = student.paid_first_year_tuition_fee  # noqa: E501
             receipt.first_year_total_hostel_fee_paid = student.paid_first_year_hostel_fee  # noqa: E501
-            receipt.second_year_total_tution_fee_paid = student.paid_second_year_tuition_fee  # noqa: E501
+            receipt.second_year_total_tuition_fee_paid = student.paid_second_year_tuition_fee  # noqa: E501
             receipt.second_year_total_hostel_fee_paid = student.paid_second_year_hostel_fee  # noqa: E501
-            receipt.first_year_total_tution_fee_pending = student.pending_first_year_tuition_fee  # noqa: E501
+            receipt.first_year_total_tuition_fee_pending = student.pending_first_year_tuition_fee  # noqa: E501
             receipt.first_year_total_hostel_fee_pending = student.pending_first_year_hostel_fee  # noqa: E501
-            receipt.second_year_total_tution_fee_pending = student.pending_second_year_tuition_fee  # noqa: E501
+            receipt.second_year_total_tuition_fee_pending = student.pending_second_year_tuition_fee  # noqa: E501
             receipt.second_year_total_hostel_fee_pending = student.pending_second_year_hostel_fee  # noqa: E501
             receipt.mode_of_payment = body.mode_of_payment
             if body.mode_of_payment == 'cheque':

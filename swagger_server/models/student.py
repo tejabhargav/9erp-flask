@@ -14,7 +14,7 @@ class Student(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, application_number: str=None, date_of_joining: str=None, course: str=None, first_name: str=None, sur_name: str=None, parent_name: str=None, gender: str=None, batch: str=None, branch: str=None, year_of_joining: str=None, mode_of_residence: str=None, primary_contact: str=None, secondary_contact: str=None, first_year_hostel_fee: float=None, first_year_tution_fee: float=None, second_year_hostel_fee: float=None, second_year_tution_fee: float=None, pending_first_year_tuition_fee: float=None, pending_first_year_hostel_fee: float=None, pending_second_year_tuition_fee: float=None, pending_second_year_hostel_fee: float=None, paid_first_year_tuition_fee: float=None, paid_first_year_hostel_fee: float=None, paid_second_year_tuition_fee: float=None, paid_second_year_hostel_fee: float=None, student_status: str=None):  # noqa: E501
+    def __init__(self, application_number: str=None, date_of_joining: str=None, course: str=None, first_name: str=None, sur_name: str=None, parent_name: str=None, gender: str=None, batch: str=None, branch: str=None, year_of_joining: str=None, mode_of_residence: str=None, primary_contact: str=None, secondary_contact: str=None, first_year_hostel_fee: float=None, first_year_tuition_fee: float=None, second_year_hostel_fee: float=None, second_year_tuition_fee: float=None, pending_first_year_tuition_fee: float=None, pending_first_year_hostel_fee: float=None, pending_second_year_tuition_fee: float=None, pending_second_year_hostel_fee: float=None, paid_first_year_tuition_fee: float=None, paid_first_year_hostel_fee: float=None, paid_second_year_tuition_fee: float=None, paid_second_year_hostel_fee: float=None, student_status: str=None):  # noqa: E501
         """Student - a model defined in Swagger
 
         :param application_number: The application_number of this Student.  # noqa: E501
@@ -45,12 +45,12 @@ class Student(Model):
         :type secondary_contact: str
         :param first_year_hostel_fee: The first_year_hostel_fee of this Student.  # noqa: E501
         :type first_year_hostel_fee: float
-        :param first_year_tution_fee: The first_year_tution_fee of this Student.  # noqa: E501
-        :type first_year_tution_fee: float
+        :param first_year_tuition_fee: The first_year_tuition_fee of this Student.  # noqa: E501
+        :type first_year_tuition_fee: float
         :param second_year_hostel_fee: The second_year_hostel_fee of this Student.  # noqa: E501
         :type second_year_hostel_fee: float
-        :param second_year_tution_fee: The second_year_tution_fee of this Student.  # noqa: E501
-        :type second_year_tution_fee: float
+        :param second_year_tuition_fee: The second_year_tuition_fee of this Student.  # noqa: E501
+        :type second_year_tuition_fee: float
         :param pending_first_year_tuition_fee: The pending_first_year_tuition_fee of this Student.  # noqa: E501
         :type pending_first_year_tuition_fee: float
         :param pending_first_year_hostel_fee: The pending_first_year_hostel_fee of this Student.  # noqa: E501
@@ -85,9 +85,9 @@ class Student(Model):
             'primary_contact': str,
             'secondary_contact': str,
             'first_year_hostel_fee': float,
-            'first_year_tution_fee': float,
+            'first_year_tuition_fee': float,
             'second_year_hostel_fee': float,
-            'second_year_tution_fee': float,
+            'second_year_tuition_fee': float,
             'pending_first_year_tuition_fee': float,
             'pending_first_year_hostel_fee': float,
             'pending_second_year_tuition_fee': float,
@@ -114,9 +114,9 @@ class Student(Model):
             'primary_contact': 'primaryContact',
             'secondary_contact': 'secondaryContact',
             'first_year_hostel_fee': 'firstYearHostelFee',
-            'first_year_tution_fee': 'firstYearTutionFee',
+            'first_year_tuition_fee': 'firstYearTuitionFee',
             'second_year_hostel_fee': 'secondYearHostelFee',
-            'second_year_tution_fee': 'secondYearTutionFee',
+            'second_year_tuition_fee': 'secondYearTuitionFee',
             'pending_first_year_tuition_fee': 'pendingFirstYearTuitionFee',
             'pending_first_year_hostel_fee': 'pendingFirstYearHostelFee',
             'pending_second_year_tuition_fee': 'pendingSecondYearTuitionFee',
@@ -141,9 +141,9 @@ class Student(Model):
         self._primary_contact = primary_contact
         self._secondary_contact = secondary_contact
         self._first_year_hostel_fee = first_year_hostel_fee
-        self._first_year_tution_fee = first_year_tution_fee
+        self._first_year_tuition_fee = first_year_tuition_fee
         self._second_year_hostel_fee = second_year_hostel_fee
-        self._second_year_tution_fee = second_year_tution_fee
+        self._second_year_tuition_fee = second_year_tuition_fee
         self._pending_first_year_tuition_fee = pending_first_year_tuition_fee
         self._pending_first_year_hostel_fee = pending_first_year_hostel_fee
         self._pending_second_year_tuition_fee = pending_second_year_tuition_fee
@@ -466,25 +466,25 @@ class Student(Model):
         self._first_year_hostel_fee = first_year_hostel_fee
 
     @property
-    def first_year_tution_fee(self) -> float:
-        """Gets the first_year_tution_fee of this Student.
+    def first_year_tuition_fee(self) -> float:
+        """Gets the first_year_tuition_fee of this Student.
 
 
-        :return: The first_year_tution_fee of this Student.
+        :return: The first_year_tuition_fee of this Student.
         :rtype: float
         """
-        return self._first_year_tution_fee
+        return self._first_year_tuition_fee
 
-    @first_year_tution_fee.setter
-    def first_year_tution_fee(self, first_year_tution_fee: float):
-        """Sets the first_year_tution_fee of this Student.
+    @first_year_tuition_fee.setter
+    def first_year_tuition_fee(self, first_year_tuition_fee: float):
+        """Sets the first_year_tuition_fee of this Student.
 
 
-        :param first_year_tution_fee: The first_year_tution_fee of this Student.
-        :type first_year_tution_fee: float
+        :param first_year_tuition_fee: The first_year_tuition_fee of this Student.
+        :type first_year_tuition_fee: float
         """
 
-        self._first_year_tution_fee = first_year_tution_fee
+        self._first_year_tuition_fee = first_year_tuition_fee
 
     @property
     def second_year_hostel_fee(self) -> float:
@@ -508,25 +508,25 @@ class Student(Model):
         self._second_year_hostel_fee = second_year_hostel_fee
 
     @property
-    def second_year_tution_fee(self) -> float:
-        """Gets the second_year_tution_fee of this Student.
+    def second_year_tuition_fee(self) -> float:
+        """Gets the second_year_tuition_fee of this Student.
 
 
-        :return: The second_year_tution_fee of this Student.
+        :return: The second_year_tuition_fee of this Student.
         :rtype: float
         """
-        return self._second_year_tution_fee
+        return self._second_year_tuition_fee
 
-    @second_year_tution_fee.setter
-    def second_year_tution_fee(self, second_year_tution_fee: float):
-        """Sets the second_year_tution_fee of this Student.
+    @second_year_tuition_fee.setter
+    def second_year_tuition_fee(self, second_year_tuition_fee: float):
+        """Sets the second_year_tuition_fee of this Student.
 
 
-        :param second_year_tution_fee: The second_year_tution_fee of this Student.
-        :type second_year_tution_fee: float
+        :param second_year_tuition_fee: The second_year_tuition_fee of this Student.
+        :type second_year_tuition_fee: float
         """
 
-        self._second_year_tution_fee = second_year_tution_fee
+        self._second_year_tuition_fee = second_year_tuition_fee
 
     @property
     def pending_first_year_tuition_fee(self) -> float:
