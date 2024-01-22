@@ -56,72 +56,39 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
       x-openapi-router-controller: swagger_server.controllers.authorization_controller
-  # /reset_password:
-  #   post:
-  #     tags:
-  #     - authorization
-  #     summary: Reset password
-  #     description: Reset password.
-  #     operationId: reset_password
-  #     requestBody:
-  #       content:
-  #         application/json:
-  #           schema:
-  #             $ref: '#/components/schemas/ResetPasswordRequest'
-  #       required: true
-  #     responses:
-  #       "200":
-  #         description: Password reset successful
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: '#/components/schemas/Response'
-  #       "401":
-  #         description: Unauthorized access error
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: '#/components/schemas/Error'
-  #       "500":
-  #         description: Internal server error
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: '#/components/schemas/Error'
-  #     x-openapi-router-controller: swagger_server.controllers.authorization_controller
-  # /send_otp:
-  #   post:
-  #     tags:
-  #     - authorization
-  #     summary: Send OTP
-  #     description: Send OTP.
-  #     operationId: send_otp
-  #     requestBody:
-  #       content:
-  #         application/json:
-  #           schema:
-  #             $ref: '#/components/schemas/SendOtpRequest'
-  #       required: true
-  #     responses:
-  #       "200":
-  #         description: OTP sent successfully
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: '#/components/schemas/Response'
-  #       "401":
-  #         description: Unauthorized access error
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: '#/components/schemas/Error'
-  #       "500":
-  #         description: Internal server error
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: '#/components/schemas/Error'
-  #     x-openapi-router-controller: swagger_server.controllers.authorization_controller
+  /send_password:
+    post:
+      tags:
+      - authorization
+      summary: Send password
+      description: Send password.
+      operationId: send_password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: password sent successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        "401":
+          description: Unauthorized access error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-openapi-router-controller: swagger_server.controllers.authorization_controller
   /branches:
     post:
       tags:
@@ -601,16 +568,7 @@ components:
           type: string
         error:
           type: string
-    ResetPasswordRequest:
-      type: object
-      properties:
-        username:
-          type: string
-        newPassword:
-          type: string
-        otp:
-          type: string
-    SendOtpRequest:
+    SendPasswordRequest:
       type: object
       properties:
         email:

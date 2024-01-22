@@ -48,3 +48,4 @@ docker build -t swagger_server .
 docker run -p 8080:8080 swagger_server
 ```
 
+java -jar swagger-codegen-cli-3.0.20.jar  generate -i swagger_server/swagger/swagger.yaml -l python-flask -o ~/Projects/9erp-flask/ -Dmodels

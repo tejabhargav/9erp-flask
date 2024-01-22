@@ -133,7 +133,7 @@ def receipts_post(body):
             
             
 
-            if receipt_response is None:
+            if receipt_response.application_number is None:
                 return Error(
                     message=f"Receipt with receipt number {receipt.receipt_number} not created"
                 )

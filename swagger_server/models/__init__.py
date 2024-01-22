@@ -13,5 +13,5 @@ from swagger_server.models.login_request import LoginRequest
 from swagger_server.models.add_concession_request import AddConcessionRequest
 from swagger_server.models.db_get_request import DbGetRequest
 from swagger_server.models.db_update_request import DbUpdateRequest
-from swagger_server.models.send_otp_request import SendOtpRequest
 from swagger_server.models.response import Response
+from swagger_server.models.send_password_request import SendPasswordRequest

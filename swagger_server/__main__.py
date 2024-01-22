@@ -4,6 +4,7 @@ import connexion
 from flask_pymongo import PyMongo
 from swagger_server.config import Config
 from flask_cors import CORS
+from flask_mail import Mail
 from loguru import logger
 
 from swagger_server import encoder
@@ -14,7 +15,7 @@ app.app.config.from_object(Config)
 logger.add('logging.log', rotation="500 MB", level="DEBUG")
 mongo = PyMongo(app.app)
 CORS(app.app, resources={r"/*": {"origins": Config.BASE_DOMAIN}})
-
+mail = Mail(app.app)
 
 def main():
  
