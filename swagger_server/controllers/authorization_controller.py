@@ -11,6 +11,8 @@ from swagger_server.config import Config
 controller generated to handled auth operation described at:
 https://connexion.readthedocs.io/en/latest/security.html
 """
+
+
 def check_bearerAuth(token):
     return {'test_key': 'test_value'}
 
@@ -20,10 +22,10 @@ def login(body):
         if connexion.request.is_json:
             body = LoginRequest.from_dict(connexion.request.get_json())  # noqa: E501
             logger.info('Login API has been called ')
-            
+
             employee = Employee.from_dict(mongo.db.employees.find_one(
                 {"username": body.username, "password": body.password}))
-            
+
             if employee.username is None:
                 raise Exception("Invalid username or password")
 
@@ -43,17 +45,17 @@ def login(body):
             message="Login Failed",
             error=str(e)
         )
-        
+
 
 def send_password(body):
     try:
         if connexion.request.is_json:
             body = SendPasswordRequest.from_dict(connexion.request.get_json())  # noqa: E501
             logger.info('Send Password API has been called ')
-            
+
             employee = Employee.from_dict(mongo.db.employees.find_one(
                 {"username": body.email}))
-            
+
             if employee.username is None:
                 raise Exception("This email is not registered with us")
 
@@ -61,9 +63,9 @@ def send_password(body):
                 subject="Password Recovery",
                 sender=Config.MAIL_USERNAME,
                 recipients=['mailatprajakta@gmail.com'],
-                body=f'This is you password for the username: {employee.username} - {employee.password}',
+                body=f'This is your password for the username: {employee.username} - {employee.password}',   # noqa: E501
             )
-    
+
             mail.send(msg)
             return Response(
                 data={},

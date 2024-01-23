@@ -25,12 +25,15 @@ def students_post(body):  # noqa: E501
         try:
             if mongo.db.students.find_one(
                 {
-                    'applicationNumber': body.application_number
+                    'firstName': body.first_name,
+                    'surName': body.sur_name,
+                    'primaryContact': body.primary_contact,
+                    'branch': body.branch,
                 }
             ):
-                logger.error(f"Student with application number {body.application_number} already exists")
+                logger.error(f"Student with application number {body.first_name} already exists")
                 return Error(
-                    message=f"Student with application number {body.application_number} already exists"
+                    message=f"Student with application number {body.first_name} already exists"
                 )
             id_type = body.branch + body.batch[:4]
             last_sequence = mongo.db.idTypeSequences.find_one(
