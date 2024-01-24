@@ -8,7 +8,7 @@ info:
     name: Your License
   version: 1.0.0
 servers:
-- url: http://localhost:8080/v1
+- url: http://localhost:5000/v1
 tags:
 - name: authorization
   description: Operations related to authorization
@@ -397,6 +397,8 @@ components:
         username:
           type: string
         password:
+          type: string
+        phoneNumber:
           type: string
     Student:
       type: object

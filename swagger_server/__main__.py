@@ -20,7 +20,7 @@ mail = Mail(app.app)
 def main():
  
     app.add_api('swagger.yaml', arguments={'title': 'School Management System API'}, pythonic_params=True)
-    app.run(port=8080, debug=True)
+    app.run(port=5000, debug=True)
 
 
 if __name__ == '__main__':

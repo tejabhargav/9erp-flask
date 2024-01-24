@@ -22,10 +22,10 @@ def login(body):
         if connexion.request.is_json:
             body = LoginRequest.from_dict(connexion.request.get_json())  # noqa: E501
             logger.info('Login API has been called ')
-
+            logger.info(f"body: {body}")
             employee = Employee.from_dict(mongo.db.employees.find_one(
                 {"username": body.username, "password": body.password}))
-
+            logger.info(f"employee: {employee}")
             if employee.username is None:
                 raise Exception("Invalid username or password")
 
@@ -52,10 +52,8 @@ def send_password(body):
         if connexion.request.is_json:
             body = SendPasswordRequest.from_dict(connexion.request.get_json())  # noqa: E501
             logger.info('Send Password API has been called ')
-
             employee = Employee.from_dict(mongo.db.employees.find_one(
                 {"username": body.email}))
-
             if employee.username is None:
                 raise Exception("This email is not registered with us")
 

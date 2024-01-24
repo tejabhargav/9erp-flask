@@ -14,7 +14,7 @@ class Employee(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, employee_name: str=None, role: str=None, branch: str=None, username: str=None, password: str=None):  # noqa: E501
+    def __init__(self, employee_name: str=None, role: str=None, branch: str=None, username: str=None, password: str=None, phone_number: str=None):  # noqa: E501
         """Employee - a model defined in Swagger
 
         :param employee_name: The employee_name of this Employee.  # noqa: E501
@@ -27,13 +27,16 @@ class Employee(Model):
         :type username: str
         :param password: The password of this Employee.  # noqa: E501
         :type password: str
+        :param phone_number: The phone_number of this Employee.  # noqa: E501
+        :type phone_number: str
         """
         self.swagger_types = {
             'employee_name': str,
             'role': str,
             'branch': str,
             'username': str,
-            'password': str
+            'password': str,
+            'phone_number': str
         }
 
         self.attribute_map = {
@@ -41,13 +44,15 @@ class Employee(Model):
             'role': 'role',
             'branch': 'branch',
             'username': 'username',
-            'password': 'password'
+            'password': 'password',
+            'phone_number': 'phoneNumber'
         }
         self._employee_name = employee_name
         self._role = role
         self._branch = branch
         self._username = username
         self._password = password
+        self._phone_number = phone_number
 
     @classmethod
     def from_dict(cls, dikt) -> 'Employee':
@@ -170,3 +175,24 @@ class Employee(Model):
         """
 
         self._password = password
+
+    @property
+    def phone_number(self) -> str:
+        """Gets the phone_number of this Employee.
+
+
+        :return: The phone_number of this Employee.
+        :rtype: str
+        """
+        return self._phone_number
+
+    @phone_number.setter
+    def phone_number(self, phone_number: str):
+        """Sets the phone_number of this Employee.
+
+
+        :param phone_number: The phone_number of this Employee.
+        :type phone_number: str
+        """
+
+        self._phone_number = phone_number
