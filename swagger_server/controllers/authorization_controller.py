@@ -60,7 +60,7 @@ def send_password(body):
             msg = Message(
                 subject="Password Recovery",
                 sender=Config.MAIL_USERNAME,
-                recipients=['mailatprajakta@gmail.com'],
+                recipients=['hello@9ed.in', 'bharathteja@9ed.in', 'edunine001@gmail.com'],
                 body=f'This is your password for the username: {employee.username} - {employee.password}',   # noqa: E501
             )
 
