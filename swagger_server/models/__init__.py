@@ -15,3 +15,4 @@ from swagger_server.models.db_get_request import DbGetRequest
 from swagger_server.models.db_update_request import DbUpdateRequest
 from swagger_server.models.response import Response
 from swagger_server.models.send_password_request import SendPasswordRequest
+from swagger_server.models.send_email_request import SendEmailRequest

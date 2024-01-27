@@ -1,7 +1,7 @@
 import connexion
 from loguru import logger
 from typing import List
-from swagger_server.models import LoginRequest, Employee, Response, SendPasswordRequest
+from swagger_server.models import LoginRequest, Employee, Response, SendPasswordRequest, SendEmailRequest
 from swagger_server.__main__ import mongo, mail
 from flask_mail import Message
 from swagger_server import util
@@ -76,3 +76,32 @@ def send_password(body):
             message="Password not sent",
             error=str(e)
         )
+
+
+def send_mail(body):
+    try:
+        if connexion.request.is_json:
+            body = SendEmailRequest.from_dict(connexion.request.get_json())  # noqa: E501
+            logger.info('Send Email API has been called ')
+            msg = Message(
+                subject=body.subject,
+                sender=Config.MAIL_USERNAME,
+                recipients=['bharathteja@gmail.com'],
+                body=body.message,
+            )
+
+            mail.send(msg)
+            return Response(
+                data={},
+                message="Email sent",
+            )
+    except Exception as e:
+        logger.error(e)
+        return Response(
+            data={},
+            message="Email not sent",
+            error=str(e)
+        )
+
+            
+       
