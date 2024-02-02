@@ -567,6 +567,11 @@ components:
           type: string
         chequeNumber:
           type: string
+        studentStatus:
+          type: string
+          enum:
+            - Active
+            - Cancelled
     ReceiptCreateRequest:
       type: object
       properties:

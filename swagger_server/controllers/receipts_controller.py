@@ -123,6 +123,7 @@ def receipts_post(body):
             receipt.second_year_total_tuition_fee_pending = student.pending_second_year_tuition_fee  # noqa: E501
             receipt.second_year_total_hostel_fee_pending = student.pending_second_year_hostel_fee  # noqa: E501
             receipt.mode_of_payment = body.mode_of_payment
+            receipt.student_status = student.student_status
             if body.mode_of_payment == 'cheque':
                 receipt.cheque_number = body.cheque_number
                 

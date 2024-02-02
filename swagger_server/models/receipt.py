@@ -14,7 +14,7 @@ class Receipt(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, receipt_number: str=None, date_of_payment: str=None, student_name: str=None, parent_name: str=None, application_number: str=None, registered_mobile_number: str=None, batch: str=None, date_of_joining: str=None, stream: str=None, gender: str=None, branch: str=None, residence_type: str=None, first_year_tuition_fee_payable: float=None, first_year_tuition_fee_paid: float=None, first_year_hostel_fee_payable: float=None, first_year_hostel_fee_paid: float=None, second_year_tuition_fee_payable: float=None, second_year_tuition_fee_paid: float=None, second_year_hostel_fee_payable: float=None, second_year_hostel_fee_paid: float=None, first_year_total_tuition_fee_paid: float=None, first_year_total_tuition_fee_pending: float=None, first_year_total_hostel_fee_paid: float=None, first_year_total_hostel_fee_pending: float=None, second_year_total_tuition_fee_paid: float=None, second_year_total_tuition_fee_pending: float=None, second_year_total_hostel_fee_paid: float=None, second_year_total_hostel_fee_pending: float=None, mode_of_payment: str=None, cheque_number: str=None):  # noqa: E501
+    def __init__(self, receipt_number: str=None, date_of_payment: str=None, student_name: str=None, parent_name: str=None, application_number: str=None, registered_mobile_number: str=None, batch: str=None, date_of_joining: str=None, stream: str=None, gender: str=None, branch: str=None, residence_type: str=None, first_year_tuition_fee_payable: float=None, first_year_tuition_fee_paid: float=None, first_year_hostel_fee_payable: float=None, first_year_hostel_fee_paid: float=None, second_year_tuition_fee_payable: float=None, second_year_tuition_fee_paid: float=None, second_year_hostel_fee_payable: float=None, second_year_hostel_fee_paid: float=None, first_year_total_tuition_fee_paid: float=None, first_year_total_tuition_fee_pending: float=None, first_year_total_hostel_fee_paid: float=None, first_year_total_hostel_fee_pending: float=None, second_year_total_tuition_fee_paid: float=None, second_year_total_tuition_fee_pending: float=None, second_year_total_hostel_fee_paid: float=None, second_year_total_hostel_fee_pending: float=None, mode_of_payment: str=None, cheque_number: str=None, student_status: str=None):  # noqa: E501
         """Receipt - a model defined in Swagger
 
         :param receipt_number: The receipt_number of this Receipt.  # noqa: E501
@@ -77,6 +77,8 @@ class Receipt(Model):
         :type mode_of_payment: str
         :param cheque_number: The cheque_number of this Receipt.  # noqa: E501
         :type cheque_number: str
+        :param student_status: The student_status of this Receipt.  # noqa: E501
+        :type student_status: str
         """
         self.swagger_types = {
             'receipt_number': str,
@@ -108,7 +110,8 @@ class Receipt(Model):
             'second_year_total_hostel_fee_paid': float,
             'second_year_total_hostel_fee_pending': float,
             'mode_of_payment': str,
-            'cheque_number': str
+            'cheque_number': str,
+            'student_status': str
         }
 
         self.attribute_map = {
@@ -141,7 +144,8 @@ class Receipt(Model):
             'second_year_total_hostel_fee_paid': 'secondYearTotalHostelFeePaid',
             'second_year_total_hostel_fee_pending': 'secondYearTotalHostelFeePending',
             'mode_of_payment': 'modeOfPayment',
-            'cheque_number': 'chequeNumber'
+            'cheque_number': 'chequeNumber',
+            'student_status': 'studentStatus'
         }
         self._receipt_number = receipt_number
         self._date_of_payment = date_of_payment
@@ -173,6 +177,7 @@ class Receipt(Model):
         self._second_year_total_hostel_fee_pending = second_year_total_hostel_fee_pending
         self._mode_of_payment = mode_of_payment
         self._cheque_number = cheque_number
+        self._student_status = student_status
 
     @classmethod
     def from_dict(cls, dikt) -> 'Receipt':
@@ -820,3 +825,30 @@ class Receipt(Model):
         """
 
         self._cheque_number = cheque_number
+
+    @property
+    def student_status(self) -> str:
+        """Gets the student_status of this Receipt.
+
+
+        :return: The student_status of this Receipt.
+        :rtype: str
+        """
+        return self._student_status
+
+    @student_status.setter
+    def student_status(self, student_status: str):
+        """Sets the student_status of this Receipt.
+
+
+        :param student_status: The student_status of this Receipt.
+        :type student_status: str
+        """
+        allowed_values = ["Active", "Cancelled"]  # noqa: E501
+        if student_status not in allowed_values:
+            raise ValueError(
+                "Invalid value for `student_status` ({0}), must be one of {1}"
+                .format(student_status, allowed_values)
+            )
+
+        self._student_status = student_status
