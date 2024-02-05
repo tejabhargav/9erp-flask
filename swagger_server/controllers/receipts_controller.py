@@ -99,7 +99,7 @@ def receipts_post(body):
             
             receipt.receipt_number = receipt_custom_id['id']
             receipt.date_of_payment = str(datetime.datetime.now())
-            receipt.student_name = student.sur_name + student.first_name
+            receipt.student_name = student.first_name + ' ' + student.sur_name
             receipt.parent_name = student.parent_name
             receipt.application_number = student.application_number
             receipt.registered_mobile_number = student.primary_contact
