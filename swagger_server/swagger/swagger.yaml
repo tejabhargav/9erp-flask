@@ -590,6 +590,8 @@ components:
           type: string
         chequeNumber:
           type: string
+        dateOfPayment:
+          type: string
     AddConcessionRequest:
       type: object
       properties:

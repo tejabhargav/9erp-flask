@@ -98,7 +98,7 @@ def receipts_post(body):
             ))
             
             receipt.receipt_number = receipt_custom_id['id']
-            receipt.date_of_payment = str(datetime.datetime.now())
+            receipt.date_of_payment = receipt.date_of_payment
             receipt.student_name = student.first_name + ' ' + student.sur_name
             receipt.parent_name = student.parent_name
             receipt.application_number = student.application_number
@@ -132,8 +132,6 @@ def receipts_post(body):
                 {'receiptNumber': receipt_custom_id['id']}
             ))
             
-            
-
             if receipt_response.application_number is None:
                 return Error(
                     message=f"Receipt with receipt number {receipt.receipt_number} not created"

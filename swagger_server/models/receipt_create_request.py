@@ -14,7 +14,7 @@ class ReceiptCreateRequest(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, application_number: str=None, fee_type: str=None, amount: float=None, mode_of_payment: str=None, cheque_number: str=None):  # noqa: E501
+    def __init__(self, application_number: str=None, fee_type: str=None, amount: float=None, mode_of_payment: str=None, cheque_number: str=None, date_of_payment: str=None):  # noqa: E501
         """ReceiptCreateRequest - a model defined in Swagger
 
         :param application_number: The application_number of this ReceiptCreateRequest.  # noqa: E501
@@ -27,13 +27,16 @@ class ReceiptCreateRequest(Model):
         :type mode_of_payment: str
         :param cheque_number: The cheque_number of this ReceiptCreateRequest.  # noqa: E501
         :type cheque_number: str
+        :param date_of_payment: The date_of_payment of this ReceiptCreateRequest.  # noqa: E501
+        :type date_of_payment: str
         """
         self.swagger_types = {
             'application_number': str,
             'fee_type': str,
             'amount': float,
             'mode_of_payment': str,
-            'cheque_number': str
+            'cheque_number': str,
+            'date_of_payment': str
         }
 
         self.attribute_map = {
@@ -41,13 +44,15 @@ class ReceiptCreateRequest(Model):
             'fee_type': 'feeType',
             'amount': 'amount',
             'mode_of_payment': 'modeOfPayment',
-            'cheque_number': 'chequeNumber'
+            'cheque_number': 'chequeNumber',
+            'date_of_payment': 'dateOfPayment'
         }
         self._application_number = application_number
         self._fee_type = fee_type
         self._amount = amount
         self._mode_of_payment = mode_of_payment
         self._cheque_number = cheque_number
+        self._date_of_payment = date_of_payment
 
     @classmethod
     def from_dict(cls, dikt) -> 'ReceiptCreateRequest':
@@ -170,3 +175,24 @@ class ReceiptCreateRequest(Model):
         """
 
         self._cheque_number = cheque_number
+
+    @property
+    def date_of_payment(self) -> str:
+        """Gets the date_of_payment of this ReceiptCreateRequest.
+
+
+        :return: The date_of_payment of this ReceiptCreateRequest.
+        :rtype: str
+        """
+        return self._date_of_payment
+
+    @date_of_payment.setter
+    def date_of_payment(self, date_of_payment: str):
+        """Sets the date_of_payment of this ReceiptCreateRequest.
+
+
+        :param date_of_payment: The date_of_payment of this ReceiptCreateRequest.
+        :type date_of_payment: str
+        """
+
+        self._date_of_payment = date_of_payment
