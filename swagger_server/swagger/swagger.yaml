@@ -508,6 +508,8 @@ components:
           type: string
         dateOfPayment:
           type: string
+        dateISO:
+          type: string
         studentName:
           type: string
         parentName:

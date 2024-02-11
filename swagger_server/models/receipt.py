@@ -14,13 +14,15 @@ class Receipt(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, receipt_number: str=None, date_of_payment: str=None, student_name: str=None, parent_name: str=None, application_number: str=None, registered_mobile_number: str=None, batch: str=None, date_of_joining: str=None, stream: str=None, gender: str=None, branch: str=None, residence_type: str=None, first_year_tuition_fee_payable: float=None, first_year_tuition_fee_paid: float=None, first_year_hostel_fee_payable: float=None, first_year_hostel_fee_paid: float=None, second_year_tuition_fee_payable: float=None, second_year_tuition_fee_paid: float=None, second_year_hostel_fee_payable: float=None, second_year_hostel_fee_paid: float=None, first_year_total_tuition_fee_paid: float=None, first_year_total_tuition_fee_pending: float=None, first_year_total_hostel_fee_paid: float=None, first_year_total_hostel_fee_pending: float=None, second_year_total_tuition_fee_paid: float=None, second_year_total_tuition_fee_pending: float=None, second_year_total_hostel_fee_paid: float=None, second_year_total_hostel_fee_pending: float=None, mode_of_payment: str=None, cheque_number: str=None, student_status: str=None):  # noqa: E501
+    def __init__(self, receipt_number: str=None, date_of_payment: str=None, date_iso: str=None, student_name: str=None, parent_name: str=None, application_number: str=None, registered_mobile_number: str=None, batch: str=None, date_of_joining: str=None, stream: str=None, gender: str=None, branch: str=None, residence_type: str=None, first_year_tuition_fee_payable: float=None, first_year_tuition_fee_paid: float=None, first_year_hostel_fee_payable: float=None, first_year_hostel_fee_paid: float=None, second_year_tuition_fee_payable: float=None, second_year_tuition_fee_paid: float=None, second_year_hostel_fee_payable: float=None, second_year_hostel_fee_paid: float=None, first_year_total_tuition_fee_paid: float=None, first_year_total_tuition_fee_pending: float=None, first_year_total_hostel_fee_paid: float=None, first_year_total_hostel_fee_pending: float=None, second_year_total_tuition_fee_paid: float=None, second_year_total_tuition_fee_pending: float=None, second_year_total_hostel_fee_paid: float=None, second_year_total_hostel_fee_pending: float=None, mode_of_payment: str=None, cheque_number: str=None, student_status: str=None):  # noqa: E501
         """Receipt - a model defined in Swagger
 
         :param receipt_number: The receipt_number of this Receipt.  # noqa: E501
         :type receipt_number: str
         :param date_of_payment: The date_of_payment of this Receipt.  # noqa: E501
         :type date_of_payment: str
+        :param date_iso: The date_iso of this Receipt.  # noqa: E501
+        :type date_iso: str
         :param student_name: The student_name of this Receipt.  # noqa: E501
         :type student_name: str
         :param parent_name: The parent_name of this Receipt.  # noqa: E501
@@ -83,6 +85,7 @@ class Receipt(Model):
         self.swagger_types = {
             'receipt_number': str,
             'date_of_payment': str,
+            'date_iso': str,
             'student_name': str,
             'parent_name': str,
             'application_number': str,
@@ -117,6 +120,7 @@ class Receipt(Model):
         self.attribute_map = {
             'receipt_number': 'receiptNumber',
             'date_of_payment': 'dateOfPayment',
+            'date_iso': 'dateISO',
             'student_name': 'studentName',
             'parent_name': 'parentName',
             'application_number': 'applicationNumber',
@@ -149,6 +153,7 @@ class Receipt(Model):
         }
         self._receipt_number = receipt_number
         self._date_of_payment = date_of_payment
+        self._date_iso = date_iso
         self._student_name = student_name
         self._parent_name = parent_name
         self._application_number = application_number
@@ -231,6 +236,27 @@ class Receipt(Model):
         """
 
         self._date_of_payment = date_of_payment
+
+    @property
+    def date_iso(self) -> str:
+        """Gets the date_iso of this Receipt.
+
+
+        :return: The date_iso of this Receipt.
+        :rtype: str
+        """
+        return self._date_iso
+
+    @date_iso.setter
+    def date_iso(self, date_iso: str):
+        """Sets the date_iso of this Receipt.
+
+
+        :param date_iso: The date_iso of this Receipt.
+        :type date_iso: str
+        """
+
+        self._date_iso = date_iso
 
     @property
     def student_name(self) -> str:
