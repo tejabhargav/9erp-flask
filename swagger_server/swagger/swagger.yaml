@@ -432,6 +432,7 @@ components:
             - Manager
             - Accountant
             - Executive
+            - Director
         branch:
           type: string
         username:

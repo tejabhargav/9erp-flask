@@ -104,7 +104,7 @@ class Employee(Model):
         :param role: The role of this Employee.
         :type role: str
         """
-        allowed_values = ["Manager", "Accountant", "Executive"]  # noqa: E501
+        allowed_values = ["Manager", "Accountant", "Executive", "Director"]  # noqa: E501
         if role not in allowed_values:
             raise ValueError(
                 "Invalid value for `role` ({0}), must be one of {1}"
