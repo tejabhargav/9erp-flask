@@ -14,35 +14,50 @@ class AddConcessionRequest(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, application_number: str=None, fee_type: str=None, amount: float=None, mode_of_payment: str=None):  # noqa: E501
+    def __init__(self, application_number: str=None, student_name: str=None, fee_type: str=None, amount: float=None, reason: str=None, issued_by: str=None, issued_date: str=None):  # noqa: E501
         """AddConcessionRequest - a model defined in Swagger
 
         :param application_number: The application_number of this AddConcessionRequest.  # noqa: E501
         :type application_number: str
+        :param student_name: The student_name of this AddConcessionRequest.  # noqa: E501
+        :type student_name: str
         :param fee_type: The fee_type of this AddConcessionRequest.  # noqa: E501
         :type fee_type: str
         :param amount: The amount of this AddConcessionRequest.  # noqa: E501
         :type amount: float
-        :param mode_of_payment: The mode_of_payment of this AddConcessionRequest.  # noqa: E501
-        :type mode_of_payment: str
+        :param reason: The reason of this AddConcessionRequest.  # noqa: E501
+        :type reason: str
+        :param issued_by: The issued_by of this AddConcessionRequest.  # noqa: E501
+        :type issued_by: str
+        :param issued_date: The issued_date of this AddConcessionRequest.  # noqa: E501
+        :type issued_date: str
         """
         self.swagger_types = {
             'application_number': str,
+            'student_name': str,
             'fee_type': str,
             'amount': float,
-            'mode_of_payment': str
+            'reason': str,
+            'issued_by': str,
+            'issued_date': str
         }
 
         self.attribute_map = {
             'application_number': 'applicationNumber',
+            'student_name': 'studentName',
             'fee_type': 'feeType',
             'amount': 'amount',
-            'mode_of_payment': 'modeOfPayment'
+            'reason': 'reason',
+            'issued_by': 'issuedBy',
+            'issued_date': 'issuedDate'
         }
         self._application_number = application_number
+        self._student_name = student_name
         self._fee_type = fee_type
         self._amount = amount
-        self._mode_of_payment = mode_of_payment
+        self._reason = reason
+        self._issued_by = issued_by
+        self._issued_date = issued_date
 
     @classmethod
     def from_dict(cls, dikt) -> 'AddConcessionRequest':
@@ -75,6 +90,27 @@ class AddConcessionRequest(Model):
         """
 
         self._application_number = application_number
+
+    @property
+    def student_name(self) -> str:
+        """Gets the student_name of this AddConcessionRequest.
+
+
+        :return: The student_name of this AddConcessionRequest.
+        :rtype: str
+        """
+        return self._student_name
+
+    @student_name.setter
+    def student_name(self, student_name: str):
+        """Sets the student_name of this AddConcessionRequest.
+
+
+        :param student_name: The student_name of this AddConcessionRequest.
+        :type student_name: str
+        """
+
+        self._student_name = student_name
 
     @property
     def fee_type(self) -> str:
@@ -125,22 +161,64 @@ class AddConcessionRequest(Model):
         self._amount = amount
 
     @property
-    def mode_of_payment(self) -> str:
-        """Gets the mode_of_payment of this AddConcessionRequest.
+    def reason(self) -> str:
+        """Gets the reason of this AddConcessionRequest.
 
 
-        :return: The mode_of_payment of this AddConcessionRequest.
+        :return: The reason of this AddConcessionRequest.
         :rtype: str
         """
-        return self._mode_of_payment
+        return self._reason
 
-    @mode_of_payment.setter
-    def mode_of_payment(self, mode_of_payment: str):
-        """Sets the mode_of_payment of this AddConcessionRequest.
+    @reason.setter
+    def reason(self, reason: str):
+        """Sets the reason of this AddConcessionRequest.
 
 
-        :param mode_of_payment: The mode_of_payment of this AddConcessionRequest.
-        :type mode_of_payment: str
+        :param reason: The reason of this AddConcessionRequest.
+        :type reason: str
         """
 
-        self._mode_of_payment = mode_of_payment
+        self._reason = reason
+
+    @property
+    def issued_by(self) -> str:
+        """Gets the issued_by of this AddConcessionRequest.
+
+
+        :return: The issued_by of this AddConcessionRequest.
+        :rtype: str
+        """
+        return self._issued_by
+
+    @issued_by.setter
+    def issued_by(self, issued_by: str):
+        """Sets the issued_by of this AddConcessionRequest.
+
+
+        :param issued_by: The issued_by of this AddConcessionRequest.
+        :type issued_by: str
+        """
+
+        self._issued_by = issued_by
+
+    @property
+    def issued_date(self) -> str:
+        """Gets the issued_date of this AddConcessionRequest.
+
+
+        :return: The issued_date of this AddConcessionRequest.
+        :rtype: str
+        """
+        return self._issued_date
+
+    @issued_date.setter
+    def issued_date(self, issued_date: str):
+        """Sets the issued_date of this AddConcessionRequest.
+
+
+        :param issued_date: The issued_date of this AddConcessionRequest.
+        :type issued_date: str
+        """
+
+        self._issued_date = issued_date

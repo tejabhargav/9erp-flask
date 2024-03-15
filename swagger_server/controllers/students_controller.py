@@ -29,6 +29,7 @@ def students_post(body):  # noqa: E501
                     'surName': body.sur_name,
                     'primaryContact': body.primary_contact,
                     'branch': body.branch,
+                    'studentStatus': body.student_status,
                 }
             ):
                 logger.error(f"Student with application number {body.first_name} already exists")

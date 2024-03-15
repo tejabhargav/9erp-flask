@@ -392,6 +392,45 @@ paths:
                 message: Resource not found
                 code: 404
       x-openapi-router-controller: swagger_server.controllers.receipts_controller
+  /concession/add:
+    post:
+      tags:
+      - receipts
+      summary: Add concession
+      description: Add concession to the system.
+      operationId: concession_add
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddConcessionRequest'
+        required: true
+      responses:
+        "201":
+          description: Concession added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        "401":
+          description: Unauthorized access error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Unauthorized
+                code: 401
+        "404":
+          description: Resource not found error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Resource not found
+                code: 404
+      x-openapi-router-controller: swagger_server.controllers.concession_controller
 components:
   schemas:
     LoginRequest:
@@ -600,6 +639,8 @@ components:
       properties:
         applicationNumber:
           type: string
+        studentName:
+          type: string
         feeType: 
           type: string
           enum:
@@ -609,7 +650,11 @@ components:
           - secondYearHostelFee
         amount:
           type: number
-        modeOfPayment:
+        reason:
+          type: string
+        issuedBy:
+          type: string
+        issuedDate:
           type: string
     Response:
       type: object
