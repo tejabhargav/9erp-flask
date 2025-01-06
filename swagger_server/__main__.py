@@ -12,7 +12,7 @@ from swagger_server import encoder
 app = connexion.App(__name__, specification_dir='./swagger/')
 app.app.json_encoder = encoder.JSONEncoder
 app.app.config.from_object(Config)
-logger.add('logging.log', rotation="500 MB", level="DEBUG")
+# logger.add('logging.log', rotation="500 MB", level="DEBUG")
 mongo = PyMongo(app.app)
 CORS(app.app, resources={r"/*": {"origins": Config.BASE_DOMAIN}})
 mail = Mail(app.app)
